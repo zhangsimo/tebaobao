@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh":true,
+  "navigationBarTitleText":"首页",
+  "usingComponents": {
+    "page-loading": "../../component/page-loading/page-loading",
+    "net-error-tips": "../../component/net-error-tips/net-error-tips",
+    "load-more": "../../component/load-more/load-more",
+    "float-buy-tips":"../../component/float-buy-tips/float-buy-tips"
+  }
+}

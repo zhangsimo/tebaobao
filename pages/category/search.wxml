@@ -1,0 +1,57 @@
+<view class="search-bar" hover-class="hover-search-bar" hover-stay-time="0" url="search">
+  <view class="search-content">
+    <input placeholder="特抱抱直供" type="text" placeholder-style="color:#FF99B1;" focus='true' confirm-type="search" bindconfirm="search" value="{{keyword}}"></input>
+    <image src="../../images/lives/clear-text.png" ontap="delText"></image>
+  </view>
+  <text>取消</text>
+</view>
+
+<view class="hot_wrap">
+  <view class="hot-search hot-title">
+    <view class="search-title">
+      <image src="../../images/lives/hot-search.png"></image>
+      <text>热门搜索</text>
+    </view>
+  </view>
+  <view class="history-list">
+    <block wx:for="{{hotKey}}" wx:key="index">
+      <view class="history-keyword">
+          <view class="text hot-text" data-keyword="{{item}}" bindtap="keywordSelect">{{item}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="history_wrap" wx:if="{{showHistory}}">
+  <view class="history-header">
+    <view class="search-title history-title">
+      <image src="../../images/lives/history-search.png"></image>
+      <text>历史搜索</text>
+    </view>
+    <image style="width: 15px; height: 15px;" src="../../images/lives/delete-search.png" bindtap="deleteHistory"></image>
+  </view>
+
+  <view class="history-list">
+    <block wx:for="{{historyKey}}" wx:key="index">
+      <view class="history-keyword">
+          <view class="text history-text" data-keyword="{{item}}" bindtap="keywordSelect">{{item}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<view class="goods-list-wrap" wx:if="{{!showHistory}}">
+  <view class="no-data" wx:if="{{(goods.length==0)}}">暂无数据</view>
+  <view class="goods-wrap">
+    <block wx:for="{{goods}}" wx:key="id">
+      <navigator class="goods-item" hover-class="hover-goods-item" hover-stay-time="0" url="../goods/details?id={{item.id}}&title={{item.name}}">
+        <view class="goods-item-wrap">
+          <image class="goods-cover" mode="aspectFill" src="{{item.cover}}"></image>
+          <view class="goods-name">{{item.name}}</view>
+          <view class="goods-price">¥{{item.price}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

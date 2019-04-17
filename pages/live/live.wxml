@@ -1,0 +1,152 @@
+ <live-player id="live-player" class="live" src="{{live_url}}" autoplay="true" object-fit="fillCrop" background-mute="{{true}}" show-fullscreen-btn="{{false}}"></live-player>
+<view class="live-wrap"  wx:if="{{direction==1}}">
+  <!-- <video id="video-player" class="live" src="http://livevideo.tebaobao.com/recordings/z1.baobaoshow.tbb_dev2_10000640/f1554793290.mp4" objectFit="cover" show-fullscreen-btn="{{false}}"></video> -->
+  <cover-image src="../../images/lives/user-img.png" class="live-user-info"> </cover-image>
+  <cover-view style="position: absolute; top: 17px; left: 10px; display: flex; align-items: center;">
+    <cover-image class="live-user-img" src="{{user.headimg}}" />
+    <cover-view class="live-user-name">
+      <cover-view class="live-user-name-con" style="font-size: 14px; line-heihgt: 1.5">{{user.user_name}}</cover-view>
+      <cover-view style="font-size: 12px; color: #fff">{{userCount}}人在观看</cover-view>
+    </cover-view>
+    <cover-image class="live-follow" wx:if="{{!isFollow}}" ontap="userFollow" src="../../images/lives/follow-image.png"></cover-image>
+    <cover-image class="live-follow" wx:if="{{isFollow}}" src="../../images/lives/followed.png"></cover-image>
+  </cover-view>
+  <cover-view class="room-id">
+    <cover-image class="room-id-img" src="../../images/lives/room-img.png"></cover-image>
+    <cover-view class="room-id-content">ID:{{live_id}}</cover-view>
+  </cover-view>
+  <cover-view class="message-wrap message-wrap-{{direction}}" bindtap='hideMessageBar' scroll-y="true" scroll-into-view="{{messageToView}}">
+    <block wx:for="{{messages}}" wx:key="id">
+      <cover-view class="message-item" id="{{'msg_'+index}}">
+        <cover-image class="live-user-msg-img" src="{{item.headUrl}}"></cover-image>
+        <cover-view style="margin-left: 5px;">
+          <cover-view class="user-name" style="color: {{item.userColor}}">{{item.username}}<cover-image style="width: 36px; height: 13px; margin-left: 3px;" src="../../images/lives/owner-img.png" wx:if="{{item.is_anchor}}"></cover-image></cover-view>
+          <cover-view class="message-content">{{item.content}}</cover-view>
+        </cover-view>
+      </cover-view>
+    </block>
+  </cover-view>
+
+  <cover-view class="live-bottom">
+    <!-- 消息 -->
+    <cover-view class="live-chat" bindtap="showMessageBar" hover-class='hover-effect'>
+      <cover-image class="live-bom-btn" src="/images/lives/live-message.png" />
+    </cover-view>
+    <!-- 分享 -->
+    <cover-view class="share-btn" bindtap='showShareModal' hover-class='hover-effect'>
+      <cover-image class="live-bom-btn" src="/images/lives/live-share.png" />
+    </cover-view>
+    <!-- 商品 -->
+    <cover-view ontap="showGoodsModal">
+      <cover-image class="live-bom-shop" src="/images/lives/live-shop.png" />
+    </cover-view>
+    <!-- 购物车 -->
+    <cover-view class="shop-cart" ontap="toShopcart">
+      <cover-image class="live-bom-btn" src="/images/lives/live-shopCar.png" />
+      <cover-view wx:if="{{shopcartCount > 0}}" class="shop-count">{{shopcartCountText}}</cover-view>
+    </cover-view>
+    <!-- 点赞 -->
+    <cover-view>
+      <cover-image class="live-bom-btn" src="/images/lives/live-fabulous.png"></cover-image>
+    </cover-view>
+  </cover-view>
+
+   <cover-view class="message-bar {{hideMessageBar}}">
+      <input type="text" style="color: #000;" placeholder="对主播，说出你的心里话~" focus="{{messageInputFocus}}" value="{{messageInputValue}}" bindinput="messageInput" />
+      <cover-view class="send-message-btn" bindtap="sendMessage">发送</cover-view>
+    </cover-view>
+  </view>
+
+<!-- 购物车modal -->
+<cover-view class="commodity_screen" bindtap="hideGoodsModal" wx:if="{{showGoodsModal}}"></cover-view>
+<cover-view animation="{{animationData}}" class="commodity_live_box" wx:if='{{showGoodsModal}}'>
+  <cover-view class="scoll-h">
+    <block wx:for="{{goods}}" wx:key="index2" wx:for-index="index2">
+      <cover-view class="live-goods-item">
+        <cover-view class="live-goods-content">
+          <cover-view class="live-goods-number">{{index2 < 10 ? '0' + (index2+1) : index2}}</cover-view>
+          <cover-view class="live-goods-con">
+            <cover-image class="live-goods-img" mode="aspectFill" src="{{item.goods_img}}"></cover-image>
+            <cover-view class="live-goods-info" data-id="{{item.goods_id}}" ontap="showGoodsDetail">
+              <cover-view class="live-goods-name">{{item.goods_name}}</cover-view>
+              <cover-view class="live-goods-desc">
+                <cover-view class="live-goods-price"><cover-view style="font-size: 10px;">￥</cover-view><cover-view>{{item.shop_price}}</cover-view></cover-view>
+                <cover-view class="live-goods-stock">库存{{item.goods_number == '' ? '0' : item.goods_number}}</cover-view>
+              </cover-view>
+            </cover-view>
+            <cover-view style="width: 20%; height:40px; display: flex;align-items: center;justify-content: center;" ontap="showGoodsSku" data-goods-id="{{item.goods_id}}" data-goods-index="{{index2}}">
+              <cover-view class="live-circle"></cover-view><cover-view class="live-circle"></cover-view><cover-view class="live-circle"></cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="goods-sku-wrap" wx:if="{{item.sku_list}}">
+          <cover-view class="select-num">
+            <cover-view class="label">数量</cover-view>
+            <cover-view class="select-count">
+              <cover-view class="count-btn" bindtap="reduce">
+                <cover-image src="/images/lives/reduce.png" class="reduce-btn"></cover-image>
+              </cover-view>
+              <cover-view class="count count-btn">{{count}}</cover-view>
+              <cover-view class="count-btn" bindtap="add">
+                <cover-image src="/images/lives/add.png" class="add-btn"></cover-image>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view wx:for="{{skuData}}" class="live-sku-wrap" wx:key="" wx:for-item="items">
+            <cover-view class="live-goods-sku-name">{{items.name}}</cover-view>
+            <block wx:for="{{items.values}}" wx:key="items.attr_id" wx:for-item="val">
+              <cover-view class="live-goods-sku-value {{val.id == skuInd ? 'sku-active' : ''}}" data-sku-value="{{val.label}}" data-sku-index="{{item.goods_id}}" data-sku-name="{{items.name}}" data-sku-id="{{val.id}}" data-sku-ind="{{val.id}}" ontap="selectSku">{{val.label}}</cover-view>
+            </block>
+          </cover-view>
+           <cover-view wx:if="{{isSku}}" style="margin-top: 8px; font-size: 12px; coloe: #999">所选规格:
+              <block wx:for="{{skuValue}}" wx:key="">
+                <cover-view style="display: inline; white-space:pre-wrap; margin: 0 3px;">{{item.val}}</cover-view>
+              </block>
+            </cover-view>
+          <cover-view class="live-goods-buy">
+            <cover-view class="live-goods-btn live-shopCart" data-goods-id="{{item.goods_id}}" ontap="addToShopcart">加购物车</cover-view>
+            <cover-view class="live-goods-btn buy-now" data-goods-id="{{item.goods_id}}"  ontap="buyNow">立即购买</cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </block>
+  </cover-view>
+</cover-view>
+
+
+
+<view class="commodity_screen" bindtap="hideShareModal" wx:if="{{showShareModalStatus}}"></view>
+<view animation="{{shareAnimationData}}" class="commodity_attr share-modal" wx:if="{{showShareModalStatus}}">
+
+<button open-type='share' class="item">
+
+  <view class="image-wrap">
+    <image src="http://static.zhibojie.tv/images/miniapp/share_user_icon.png"></image>
+  </view>
+
+  <view class="text">发给朋友</view>
+</button>
+
+<view class="item" bindtap='shareQrcode'>
+  <view class="image-wrap">
+    <image src="http://static.zhibojie.tv/images/miniapp/share_qrcode_icon.png"></image>
+  </view>
+
+  <view class="text">生成海报</view>
+</view>
+
+<view class="cancel-btn" hover-class='hover-effect' bindtap='hideShareModal'>取消</view>  
+</view>
+
+<!-- <view class="user-auth-mark" wx:if="{{!isUserAuth}}">
+    <view class="user-auth-content">
+        <view class="user-auth-tit">信息授权提示</view>
+        <view class="user-auth-con">需要访问您的通讯地址，请到小程序的设置中打开通讯地址授权</view>
+        <view class="user-auth-foot">
+          <button bindtap="cancelAuth" plain style="left: 0; border-right: 1px solid #eee">取消</button>
+          <button bindtap="setAuth" open-type="openSetting" plain style="right: 0; color: #ff4965;">去设置</button>
+        </view>
+    </view>
+</view> -->
+
+<qrcode-poster showPosterModal="{{showPosterModal}}" goods="{{live}}" qrcodeUrl="{{qrcodeUrl}}" posterUrl="{{posterUrl}}" bindclose="posterClose"></qrcode-poster>

@@ -1,0 +1,6 @@
+<!--noticeLive.wxml-->
+<view class="notice-live">
+  <image class="notice-img" src="../../images/lives/notice-live.png" />
+  <view class="notice-con">主播还没有开始直播 去看看其他直播吧～</view>
+  <view class="notice-btn">点击前往</view>
+</view>

@@ -1,0 +1,114 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="index">
+
+  <view class="home-header">
+    <view class="header-search">
+      <view><image style="width: 25px; height:25px;" src="../../images/logo.png"></image></view>
+      <view style="height: 25px;">
+        <navigator class="home-search" url="../category/search" hover-stay-time="0">
+          <image style="width: 16px; height:16px;" src="../../images/search.png"></image>
+          <input placeholder="小奥丁买2免1"></input>
+        </navigator>
+      </view>
+      <view>
+        <image ontap="goCategory" style="margin-top: 3px;" src="../../images/icon_tbbar_category.png"></image>
+      </view>
+    </view>
+    <view class="home-category-tabs">
+      <scroll-view scroll-x>
+        <view wx:if="{{item.is_show_cat}}" class="{{categoryClicked == item.id ? 'categoryActive' : ''}}" ontap="changeCategoryTab" wx:for="{{categoryDatas}}" wx:key="{{item.id}}" data-parent-id="{{item.id}}" data-tap-value="{{item.name}}">{{item.name}}</view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <swiper duration="300" style="display:{{homeIndexStatus}};height:{{tabContentHeight}}rpx;">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+          <swiper class="home-swiper" indicator-dots="{{indicatorDots}}" circular autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <block wx:for="{{bannerData}}" wx:key="{{item.id}}" style=""> 
+                  <swiper-item style="width: 100%; height: 100%;" data-title="{{item.ad_name}}" data-link="{{item.ad_link}}" data-type="{{item.is_belong}}" ontap="bannerClick">
+                    <image mode="widthFix" style="width: 100%; height: 100%;" src="{{item.ad_code}}"></image>
+                  </swiper-item>
+                  </block>
+            </swiper>
+          <view wx:for="{{banner_mark}}" wx:key="{{item.id}}">
+            <navigator url="{{item.ad_link}}">
+              <image src="{{item.ad_code}}" style="width: 96%; height: 100px; margin-left: 2%"></image>  
+            </navigator>
+          </view>
+          <scroll-view class="{{scrollY > 277? 'topnav home-time-tabs' : 'home-time-tabs'}}" scroll-x>
+            <view class="{{timeClicked == item.cat_id ? 'timeActive' : ''}}" ontap="changeTimeTab" wx:for="{{homeTimeDatas}}" wx:key="{{item.cat_status}}" data-time-id="{{item.cat_id}}">
+              <text class="parent-time">{{item.cat_name}}</text>
+              <text class="parent-status">{{item.cat_status}}</text>
+            </view>
+          </scroll-view>
+          <scroll-view scroll-y style="padding-bottom: 20px;">
+            <navigator class="home-goods" wx:for="{{timeList}}" wx:key="{{item.id}}" ontap="goodsDetail" url="../goods/details?id={{item.id}}&title={{item.name}}">
+              <view style="width: 100%;"><image mode='widthFix' class="home-goods-img" src="{{item.goods_thumb}}"></image></view>
+              <view class="home-goods-name"><view class="home-goods-item">{{item.tag[0]}}</view>  {{item.goods_name}}</view>
+              <view class="home-goods-price">{{item.shop_price}}</view>
+              <view class="home-goods-bom">
+                <view class="home-goods-sales">销量 {{item.ghost_count}}</view>
+                <view class="home-goods-btn">立即抢购</view>    
+              </view>
+            </navigator>
+          </scroll-view>
+          <view style="width: 100%; height: 35px; line-height: 35px; text-align: center; background: #f3f3f3; color: #999;">
+            没有更多数据了
+          </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <swiper duration="300" style="display:{{homeBrandStatus}}; height:{{tabContentHeight}}rpx;">
+    <swiper-item>
+      <scroll-view scroll-y class="scoll-h">
+        <view class="home-brand">
+          <navigator class="brand-item" wx:for="{{brandData}}" wx:key="{{item.id}}" url="./brand?id={{item.id}}">
+            <image class="brand-big-img"  mode='widthFix' src="{{item.img}}"/>
+            <view class="brand-info-wrap">
+              <view style="margin-left: 15px; display: flex;">
+                <view class="brand-logo-wrap">
+                  <image class="brand-logo-img" src="{{item.logo}}"/>
+                </view>
+                <view class="brand-info">
+                  <text class="brand-name">{{item.name}}</text>
+                  <view class="brand-hot">热度 {{item.sell_number}}</view>
+                </view>
+              </view>
+              <view class="brand-btn">上传店铺</view>
+            </view>
+          </navigator>
+          <view style="width: 100%; height: 35px; line-height: 35px; text-align: center; background: #f3f3f3; color: #999; margin-top: 20px; display: {{isShowBrand}}">
+          没有更多数据了
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  
+  <swiper duration="300" style="display:{{homeOtherStatus}}; height:{{tabContentHeight}}rpx;">
+    <swiper-item>
+      <scroll-view scroll-y class="scoll-h">
+        <view class="{{isShow === true ? 'home-other other-loading' : 'home-other'}}">
+          <navigator class="other-item" wx:for="{{homeOtherData}}" wx:key="{{item.id}}" url="../goods/details?id={{item.id}}&title={{item.name}}">
+            <view class="other-img">
+              <image src="{{item.goods_thumb}}" />
+            </view>
+            <view class="other-info">
+              <view class="other-name"><text class="{{item.tag === null ? '' : 'other-item-mark'}}">{{item.tag === null ? '' : item.tag[0]}}</text>{{item.goods_name}}</view>
+              <view class="other-price">{{item.shop_price}}</view>
+              <view class="other-bom">
+                <text style="color: #888">销量 {{item.ghost_count}}</text>
+                <view>
+                  <text class="other-btn">立即购买</text>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>

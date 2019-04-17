@@ -1,0 +1,4 @@
+<view class="net-error" hidden="{{isNoNetError}}">
+    <view class="tips">手机网络不太顺畅，请检查网络状况</view>
+    <button class="reloadBtn" catchtap='_loadData'>重新加载</button>
+</view>

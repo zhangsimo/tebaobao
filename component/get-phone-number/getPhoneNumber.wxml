@@ -1,0 +1,11 @@
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showPhoneModal}}"></view>
+<view class="modal-dialog" wx:if="{{showPhoneModal}}">
+  <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+  <view class="modal-content auth-dialog-content">
+    <view>{{appName}}申请获得您的手机号码</view>
+  </view>
+  <view class="modal-footer">
+    <!-- <view class="btn-cancel" catchtap="onPhoneDialogCancel" data-status="cancel">取消</view> -->
+    <button class="btn-confirm" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-status="confirm">授权</button>
+  </view>
+</view>

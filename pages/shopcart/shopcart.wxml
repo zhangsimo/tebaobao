@@ -1,0 +1,90 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+
+<view class="empty-page" wx:if="{{isEmpty}}">
+
+  <view class="empty-info-wrap">
+    <image class="empty-icon" src="http://static.zhibojie.tv/images/miniapp/shopping-bag-empty.png"></image>
+
+    <view class="empty-text">购物车是空的</view>
+    <button class="visit-btn" hover-class="hover-effect" bindtap="goToBuy">去逛逛吧</button>
+  </view>
+</view>
+
+<view class="wrap" wx:if="{{!isEmpty}}">
+
+  <view class="shopcart-item weui-cells weui-cells_after-title">
+
+      <block wx:for="{{shopcartItems}}" wx:key="shopId">
+        <label class="weui-cell weui-check__label shopcart-item-header">
+        <checkbox-group data-id="{{item.shopId}}" bindchange="shopCheckboxChange">
+          <checkbox class="weui-check" value="shop-id-{{item.shopId}}" checked="{{item.checked}}" />
+
+          <view class="weui-cell__hd weui-check__hd_in-checkbox">
+            <icon class="weui-icon-checkbox_circle" type="circle" size="20" wx:if="{{!item.checked}}"></icon>
+            <icon class="weui-icon-checkbox_success" type="success" color="#ff4965" size="20" wx:if="{{item.checked}}"></icon>
+          </view>
+          </checkbox-group>
+          <image class="shop-icon" src="http://static.zhibojie.tv/images/miniapp/shop_light.png"></image>
+          <view class="weui-cell__bd shop-name">{{item.shopName}}</view>
+
+          <view class="edit-btn" data-shop-id="{{item.shopId}}" catchtap="edit">{{item.isEditing?"完成":"编辑"}}</view>
+        </label>
+        
+        <label wx:for="{{item.cartProducts}}" wx:for-item="goodsItem" wx:key="cartId" class="weui-cell shopcart-goods-item">
+          <checkbox-group data-id="{{goodsItem.cartId}}" bindchange="singleSelect">
+          <checkbox class="weui-check" value="cart-id-{{goodsItem.cartId}}" checked="{{goodsItem.checked}}" />
+          <view class="weui-cell__hd weui-check__hd_in-checkbox">
+            <icon class="weui-icon-checkbox_circle" type="circle" size="20" wx:if="{{!goodsItem.checked}}"></icon>
+            <icon class="weui-icon-checkbox_success" type="success" color="#ff4965" size="20" wx:if="{{goodsItem.checked}}"></icon>
+
+          </view>
+          </checkbox-group>
+          <image class="shopcart-goods-cover" src="{{goodsItem.pImage}}" mode="aspectFill"  data-id="{{goodsItem.pId}}" data-title="{{goodsItem.pName}}" catchtap="showGoodsDetail"></image>
+
+          <view class="shopcart-goods-info">
+            <view wx:if="{{!item.isEditing}}" class="shopcart-goods-name">{{goodsItem.pName}}</view>
+            <view wx:else="{{item.isEditing}}" class="stepper">
+              <button class="minus-btn" hover-class="hover-effect" data-id="{{goodsItem.cartId}}" catchtap="minus"></button>
+              <input class="stepper-number" data-id="{{goodsItem.cartId}}" value="{{goodsItem.pQuantity}}" type="number" bindblur="stepperInput"/>
+              <button class="plus-btn" hover-class="hover-effect"  data-id="{{goodsItem.cartId}}" catchtap="plus"></button>
+            </view>
+            <view class="shopcart-sku-str">
+              <block wx:for="{{goodsItem.pOptions}}" wx:for-item="sku" wx:key="{{pOptionText}}">
+                {{sku.pOptionText}}:{{sku.pOptionExplain}}
+              </block>
+            </view>
+            <view class="shopcart-goods-price">¥{{goodsItem.pPrice}}</view>
+
+            <view class="count">x {{goodsItem.pQuantity}}</view>
+
+            <view wx:if="{{item.isEditing}}" class="delete-btn" hover-class="hover-effect" data-id="{{goodsItem.cartId}}" catchtap="delete">删除</view>
+          </view>
+
+        </label>
+      </block>
+
+  </view>
+
+</view>
+
+<view wx:if="{{shopcartItems&&shopcartItems.length!=0}}" class="{{isIphonex?'fix-iphonex-bottom':''}} bottom-bar shopcart-bottom-bar">
+  <label class="select-all">
+  <checkbox-group bindchange="selectAll">
+          <checkbox class="weui-check" value="all" checked="{{isSelectAll}}" />
+          <view class="weui-cell__hd weui-check__hd_in-checkbox">
+            <icon class="weui-icon-checkbox_circle" type="circle" size="20" wx:if="{{!isSelectAll}}"></icon>
+            <icon class="weui-icon-checkbox_success" type="success" color="#ff4965" size="20" wx:if="{{isSelectAll}}"></icon>
+          </view>
+  </checkbox-group>
+  </label>
+
+
+  <button class="submit" hover-class="hover-effect" disabled="{{isSubmitDisable}}" bindtap="check">结算{{selectCount}}</button>
+
+  <view class="total-price">
+    <view class="total-price-num {{!isSubmitDisable? 'price-active':''}}">合计:  ¥ {{totalPrice}}</view>
+    <view class="desc">不含运费</view>
+  </view>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>

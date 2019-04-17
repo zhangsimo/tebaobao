@@ -1,0 +1,42 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+
+<label wx:for="{{goods}}" wx:for-item="goodsItem" wx:key="id" class="weui-cell shopcart-goods-item">
+
+  <image class="shopcart-goods-cover" src="{{goodsItem.cover}}" mode="aspectFill"></image>
+
+  <view class="shopcart-goods-info">
+    <view class="shopcart-goods-name">{{goodsItem.name}}</view>
+
+    <view class="shopcart-sku-str">
+      {{goodsItem.sku}}
+    </view>
+    <view class="shopcart-goods-price">¥{{goodsItem.price}}</view>
+
+    <view class="count">x {{goodsItem.count}}</view>
+  </view>
+
+</label>
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">发起申请</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+      <view class="weui-cells weui-cells_in-small-appmsg">
+        <view  class="weui-cell weui-cell_access" hover-class="weui-cell_active" catchtap="refund" data-rqtype="1">
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>仅退款</view>
+            <view class="weui-media-box__desc">包含七天保价、破损漏发退款</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <!-- <view url="refund?id={{order_id}}&request_type=2" class="weui-cell weui-cell_access" hover-class="weui-cell_active" catchtap="refund" data-rqtype="2">
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>退货退款</view>
+            <view class="weui-media-box__desc">已收到货，需要退还已收到的货物</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

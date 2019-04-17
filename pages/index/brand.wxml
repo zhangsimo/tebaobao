@@ -1,0 +1,36 @@
+<view class="brand-detail">
+  <view class="home-brand">
+    <view class="brand-item">
+      <image class="brand-big-img" src="{{brandData[0].brand_img}}"/>
+      <view class="brand-info-wrap">
+        <view style="margin-left: 15px; display: flex;">
+          <view class="brand-logo-wrap">
+            <image class="brand-logo-img" src="{{brandData[0].brand_log}}"/>
+          </view>
+          <view class="brand-info">
+            <text class="brand-name">{{brandData[0].brand_name}}</text>
+            <view class="brand-hot">热度 {{brandData[0].sell_number}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="brand-goods" wx:for="{{goods}}" wx:key="{{item.id}}">
+      <navigator class="other-item" url="../goods/details?id={{item.id}}&title={{item.goods_name}}">
+        <view class="other-img">
+          <image src="{{item.goods_thumb}}" />
+        </view>
+        <view class="other-info">
+          <view class="other-name"><text class="{{item.tag === null ? '' : 'other-item-mark'}}">{{item.tag === null ? '' : item.tag[0]}}</text>{{item.goods_name}}</view>
+          <view class="other-price">{{item.shop_price}}</view>
+          <view class="other-bom">
+            <text style="color: #888">销量 {{item.ghost_count}}</text>
+            <view>
+              <text class="other-btn" style="margin-right: 8px;">上传店铺</text>
+              <text class="other-btn">分享购买</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

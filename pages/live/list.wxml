@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="container">
+  
+  <block wx:for="{{lives}}" wx:key="id">
+    <view class="live-item" bindtap="openLive" data-liveId="{{item.id}}" data-liveTitle="{{item.title}}" data-direction="{{item.direction}}" data-canPush="{{item.is_stopped==1&&item.is_end==0 ? true : false}}">
+      <view class="live-icon {{item.is_stopped==1?'live-record':''}}">{{item.is_stopped==1? "":"直播"}}{{item.is_stopped==1&&item.is_end==1? "回放":(item.is_stopped==1?"待播":"")}}</view>
+      <image class="live-red-dot" wx:if="{{item.is_stopped==0}}" src="http://static.zhibojie.tv/images/miniapp/live-dot.png"></image>
+      <image class="live-cover" src="{{item.cover}}" mode='aspectFill'></image>
+      <view class="live-info">
+        <view class="live-title">{{item.title}}</view>
+        <view class="live-owner">{{item.user_name}}</view>
+        <view class="live-goods">
+          <block wx:for="{{item.goods}}" wx:for-item="goods" wx:key="id">
+            <image class="goods-cover" src="{{goods.cover}}" mode='aspectFill'></image>
+          </block>
+        </view>
+      </view>
+
+      <view class="direction">{{item.direction==0?"横屏":"竖屏"}}</view>
+    </view>
+  </block>
+
+  <view class="{{isIphonex?'fix-iphonex-bottom':''}} bottom-bar">
+    <!-- <view class="bottom-btn" bindtap="logout">退出登录</view> -->
+    <view class="bottom-btn" bindtap="createLive">创建直播</view>
+  </view>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+<load-more isHideLoadMore="{{isHideLoadMore}}"></load-more>

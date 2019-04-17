@@ -1,0 +1,80 @@
+/* pages/order/logistic-detail.wxss */
+
+page {
+  background-color: #f9f9f9;
+}
+
+.logistic-info, .logistic-node-info {
+  background-color: #fff;
+}
+
+.logistic-info {
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  font-size: 28rpx;
+}
+
+.logistic-info .status {
+  color: #ad0e11;
+}
+
+.logistic-info .express_name, .logistic-info .express_nu {
+  color: #999;
+}
+
+.logistic-node-info .header {
+  border-bottom: 1px solid #ededed;
+  padding-left: 30rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+}
+
+.logistic-node-info .header {
+  font-size: 28rpx;
+}
+
+.logistic-node-info .node {
+  color: #999;
+}
+
+.logistic-node-info .main {
+  padding: 20rpx 30rpx 40rpx;
+}
+
+.logistic-node-info .node {
+  display: block;
+  padding: 0 36rpx 60rpx 70rpx;
+  margin-left: 70rpx;
+  box-sizing: border-box;
+  border-left: 1px solid #ededed;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 50rpx;
+  position: relative;
+}
+
+.logistic-node-info .status_bot {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 0;
+  left: -16rpx;
+  border-radius: 50%;
+}
+
+.logistic-node-info .node .first-child-bot {
+  background: #e6b6b7;
+}
+
+.status_bot .circle {
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+  display: block;
+  background: #ededed;
+  margin: 6rpx auto;
+}
+
+.logistic-node-info .node .first-child-bot .circle {
+  background: #ad0e11;
+}

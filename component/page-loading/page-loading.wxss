@@ -1,0 +1,13 @@
+/* component/page-loading/page-loading.wxss */
+.page-loading{
+  width:60rpx;
+  height: 60rpx;
+  display: block;
+  margin: 0 auto;
+  padding-top:60rpx;
+  text-align: center;
+}
+.loading-image{
+  width:60rpx;
+  height: 60rpx;
+}

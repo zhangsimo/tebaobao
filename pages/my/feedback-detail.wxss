@@ -1,0 +1,15 @@
+/* pages/my/feedback-detail.wxss */
+
+.feedback-content{
+  padding:30rpx 20rpx;
+  border-bottom: 1px solid #ddd;
+  margin: 0 10rpx;
+}
+
+.feedback-content .header{
+  border-bottom: 1px dashed #ccc;
+}
+
+.feedback-content .content{
+  padding:30rpx;
+}

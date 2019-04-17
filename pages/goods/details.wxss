@@ -1,0 +1,347 @@
+page{
+  background-color:#f9f9f9;
+  padding-bottom: 200rpx;
+}
+
+.base-info{
+  background-color:#ffffff;
+  padding:30rpx;
+  position: relative;
+}
+.goods-name{
+  font-weight: 500;
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  padding-right: 80rpx;
+}
+.goods-price{
+  color:#ad0f12;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.policy-info{
+  background-color:#f2f2f2;
+  height: 70rpx;
+  line-height: 70rpx;
+  vertical-align: center;
+  padding-left:30rpx;
+}
+
+.tick{
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.policy-info .txt{
+  padding-left:5px;
+  color:#a2a2a2;
+}
+
+.share-btn{
+  width:64rpx;
+  height:96px;
+  background: none;
+  border:none;
+  padding:0;
+  right:20rpx;
+  top:10rpx;
+  position: absolute;
+}
+
+.share-btn::after{
+  content:none;
+}
+
+.image-wrap{
+  height:40rpx;
+}
+
+.share-btn image{
+  width:40rpx;
+  height:40rpx;
+}
+.share-btn .text{
+  font-size:24rpx;
+  padding-top:10rpx;
+  height:24rpx;
+  color:#4e4e4e;
+}
+
+.detail{
+  background: #ffffff;
+  margin-top:30rpx;
+}
+
+.detail .title{
+  font-size: 26rpx;
+  height: 70rpx;
+  color:#4f4f4f;
+  line-height: 70rpx;
+  margin:0 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.detail .content{
+  overflow: hidden;
+  padding:20rpx 30rpx;
+}
+
+.detail .content img , .detail .content image{
+  width: 100%;
+}
+/*底部工具栏*/
+
+.left-btn-wrap,
+.buy-btn, 
+.home-btn,
+.shopcart-btn, 
+.chat-btn{
+  float:left;
+  text-align: center;
+}
+.left-btn-wrap ,.buy-btn{
+  width:50%;
+}
+.home-btn ,
+.shopcart-btn, 
+.chat-btn{
+  width:33.3%;
+  font-size: 20rpx;
+  color:#4e4e4e;
+}
+
+.home-btn .text,
+.shopcart-btn .text, 
+.chat-btn .text{
+  padding-bottom: 12rpx;
+}
+
+.add-shopcart-btn , .buy-now-btn{
+  width:50%;
+  height: 100%;
+  float:left;
+  line-height: 96rpx;
+  text-align: center;
+  color:#ffffff;
+}
+.add-shopcart-btn{
+  background-color:#ff0000;
+  background-image: linear-gradient(90deg,#fab800,#ff4965);
+}
+.buy-now-btn{
+  background-color:#ff4965;
+}
+.add-shopcart-btn::after{
+  border:none;
+}
+.buy-now-btn::after{
+  border:none;
+}
+
+.home-btn image, .shopcart-btn image, .chat-btn image{
+  width:44rpx;
+  height:44rpx;
+  padding-top:12rpx;
+}
+
+.commodity_attr_box{
+  min-height: 700rpx;
+  max-height: 100%;
+}
+
+.chat-btn{
+  background-color: rgba(255, 255, 255, 0);
+  border:none;
+  padding:0;
+}
+
+.chat-btn::after{
+  content: none;
+}
+
+.chat-btn .text{
+  padding:0;
+  margin:0;
+  margin-top:-18rpx;
+}
+
+/* end 底部工具栏*/
+
+/*规格选择*/
+
+.close{
+  width:80rpx;
+  height:104rpx;
+  position: absolute;
+  top:-20rpx;
+  right:0;
+}
+
+.close:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -16rpx 0 0 -16rpx;
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("http://static.zhibojie.tv/images/miniapp/sku-layout-close.png");
+    background-size: 30rpx auto;
+}
+.sku-base-info{
+  border-bottom: 1px solid #f2f2f2;
+  min-height: 120rpx;
+  position: relative;
+}
+
+.sku-base-info .goods-cover{
+  width:160rpx;
+  height: 160rpx;
+  border-radius: 2px;
+}
+
+.goods-cover-wrap{
+  box-shadow:0px 0px 5px #f2f2f2;
+  padding:2px;
+  border-radius: 2px;
+  width:160rpx;
+  position: absolute;
+  top:-80rpx;
+  left:30rpx;
+  background-color: #ffffff;
+}
+.goods-name-price{
+  margin-left: 220rpx;
+}
+
+.goods-name-price .price{
+  color:#ad0f12;
+  font-size: 16px;
+}
+.goods-name-price .name{
+  color:#4e4e4e;
+}
+
+.sku-scroll-wrap{
+  height: 100%;
+  width: 100%;
+  padding-bottom:96rpx;
+}
+
+.sku-scroll-wrap-iphonex{
+  padding-bottom:164rpx
+}
+
+.sku-bottom-btn-wrap{
+  position:absolute;
+  width: 100%;
+  bottom: 0;
+  height: 96rpx;
+}
+
+.sku-bottom-btn-wrap button{
+  width:50%;
+  height:96rpx;
+  color:#ffffff;
+  border-radius:0;
+  font-size: 26rpx;
+  line-height: 96rpx;
+}
+
+.sku-bottom-btn-wrap-iphonex{
+  height: 164rpx;
+}
+.select-num{
+  height:88rpx;
+  line-height: 88rpx;
+  margin: 0 30rpx;
+  padding-bottom: 40rpx;
+}
+.sku-scroll-wrap .label{
+  float:left;
+  height: 88rpx;
+  line-height: 88rpx;
+  color:#222222;
+  font-size: 26rpx;
+}
+.select-count{
+  float: right;
+}
+.select-count .reduce-btn, .select-count .add-btn{
+  width:50rpx;
+  height: 50rpx;
+  border-radius: 40rpx;
+  border:1px solid #ccc;
+  float:left;
+}
+.select-count .count{
+  float:left;
+}
+.select-count .reduce-btn, .select-count .add-btn{
+  background-image: url("http://static.zhibojie.tv/images/miniapp/reduce-btn.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30rpx;
+  padding:0;
+  margin-top:19rpx;
+}
+.select-count .reduce-btn{
+  margin-right: 26rpx;
+}
+.select-count .add-btn{
+  background-image: url("http://static.zhibojie.tv/images/miniapp/add-btn.png");
+  margin-left: 26rpx;
+}
+.select-count button{
+  background-color: #ffffff;
+}
+.select-count button::after{
+  content: none;
+}
+
+.count{
+  color:#222222;
+  font-size: 28rpx;
+}
+.select-count .count-btn-hover{
+  background-color:#ccc;
+}
+.sku-group{
+  padding:28rpx 0;
+  margin:0 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.sku-name{
+  color:#222222;
+}
+.sku-value{
+  border:1px solid #e5e5e5;
+  margin: 20rpx 0 0 20rpx;
+  padding: 10rpx 16rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 36rpx;
+  color: #222222;
+  border-radius: 6rpx;
+  display: inline-block;
+}
+.sku-value-active{
+  border:1px solid #ff4965;
+  color:#ff4965;
+}
+/* end 规格选择 */
+.short-video-cover{
+  position: relative;
+}
+.play-bt{
+  width:130rpx;
+  height:130rpx;
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-top:-75rpx;
+  margin-left:-75rpx;
+}
+
+
+

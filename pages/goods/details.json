@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "net-error-tips": "../../component/net-error-tips/net-error-tips",
+    "auth-dialog": "../../component/auth-dialog/auth-dialog",
+    "qrcode-poster": "../../component/qrcode-poster/qrcode-poster",
+    "user-register": "../../component/user-register/user-register"
+  }
+}

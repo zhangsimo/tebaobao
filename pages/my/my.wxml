@@ -1,0 +1,96 @@
+<view class="container">
+
+  <view class="header">
+    <view class="user-box">
+      <view class="avatar-wrap">
+        <image class="avatar" src="{{userInfo.avatarUrl}}" mode='aspectFill'></image>
+      </view>
+      <view class="user-info">
+        <view class="user-name" wx:if="isLogin">{{userInfo.nickName}}</view>
+      </view>
+
+      <view class="user-points" style="display:none;">
+        <navigator>
+          <view>可用积分</view>
+          <view class="user-points-text">0</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="orders-type">
+    <navigator class="flex-item5" url="../order/list?order_type=1">
+      <view class="ico ico-waitpay">
+        <view wx:if="{{order_count_1 > 0}}" class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{order_count_1>99 ? "99+": order_count_1}}</view>
+      </view>
+      <view class="text">待付款</view>
+
+
+    </navigator>
+
+    <navigator class="flex-item5" url="../order/list?order_type=2">
+      <view class="ico ico-waitsend">
+        <view wx:if="{{order_count_2 > 0}}" class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{order_count_2>99 ? "99+": order_count_2}}</view>
+      </view>
+      <view class="text">待发货</view>
+    </navigator>
+
+    <navigator class="flex-item5" url="../order/list?order_type=3">
+      <view class="ico ico-waitconfirm">
+        <view wx:if="{{order_count_3 > 0}}" class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{order_count_3>99 ? "99+": order_count_3}}</view>
+      </view>
+      <view class="text">待收货</view>
+    </navigator>
+
+    <navigator class="flex-item5" url="../order/list?order_type=5">
+      <view class="ico ico-aftersale">
+        <view wx:if="{{order_count_5 > 0}}" class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{order_count_5>99 ? "99+": order_count_5}}</view>
+      </view>
+      <view class="text">退款/售后</view>
+    </navigator>
+
+    <navigator class="flex-item5" url="../order/list?order_type=4">
+      <view class="ico ico-orders"></view>
+      <view class="text">全部订单</view>
+    </navigator>
+  </view>
+
+
+  <view class="service-list">
+    <!-- <view class="flex-item4" hover-class="hover-effect" bindtap='myLive' wx:if="{{showLive}}">
+      <view class="ico ico-live">
+      </view>
+      <view class="text">直播发布</view>
+    </view>
+
+    <view class="flex-item4" hover-class="hover-effect" bindtap="openHelp">
+      <view class="ico ico-help">
+      </view>
+      <view class="text">申请入驻</view>
+    </view> -->
+
+    <!-- <view wx:if="{{isFenxiao === 1 ? true : false}}" > -->
+      <view class="flex-item4" hover-class="hover-effect" bindtap='myLive'>
+        <view class="ico ico-live"></view>
+        <view class="text">直播</view>
+      </view>
+    <!-- </view> -->
+
+    <!-- <button class="flex-item4 cs-btn" hover-class="hover-effect" open-type='contact'>
+      <view class="ico ico-cs">
+      </view>
+      <view class="text cs-text">客服</view>
+    </button> -->
+
+    <view class="flex-item4" hover-class="hover-effect" bindtap="openFeedback">
+      <view class="ico ico-feedback">
+      <view wx:if="{{replyCount > 0}}" class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{replyCount>99 ? "99+": replyCount}}</view>
+      </view>
+      <view class="text">反馈</view>
+    </view>
+  </view>
+ 
+  <view class="footer">
+        v {{version}}
+  </view>
+</view>

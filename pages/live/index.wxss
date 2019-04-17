@@ -1,0 +1,362 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+.container{
+  width:100%;
+  height:100%;
+  background: #F4F4F4;
+}
+
+/** 滚动 **/
+.tab-h {
+  padding: 0 10px 0 24px;
+  height: 90rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 70rpx;
+  background: #F7003E;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.live-search {
+  width: 40%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 15px;
+  background:rgba(255,154,154,0.5);
+}
+
+.live-search input {
+  margin-top: 2px;
+  width: 80%;
+}
+.live-search-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.home-swiper {
+  width: 100%;
+  height: 360rpx;
+}
+
+.scoll-h {
+  height: 100%;
+}
+
+/* 商品列表 */
+.live-goodslist {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  padding-bottom: 14px;
+  padding-top: 10px;
+}
+.live-title {
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  padding-left: 18rpx;
+  color: #333;
+  font-size: 16px;
+  font-family:PingFangSC-Medium;
+  font-weight:600;
+}
+.title-imgs {
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-top: -10rpx;
+}
+.live-goodslist-content {
+  width: 100%;
+  height: 176rpx;
+  margin-top: 11px;
+  padding-left: 13px;
+  white-space: nowrap;
+}
+.live-goods-item,
+.goods-item-wrap,
+.live-goods-cover {
+  width: 176rpx;
+  height: 176rpx;
+  background-color: -webkit-linear-gradient(#EEEEEE, #F7F7F7);
+  border-radius: 8px;
+}
+.live-goods-item {
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.goods-item-wrap {
+  position: relative;
+  margin-right: 10px;
+}
+.live-goods-name {
+  position: absolute;
+  left: 5px;
+  bottom: 0px;
+  width: 90%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.live-goods-price {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: 32rpx;
+  padding: 5rpx;
+  line-height: 32rpx;
+  background: #E31A1A;
+  border-radius: 8px 0 8px 0;
+  color: #fff;
+  font-size: 12px;
+}
+
+.tab-item {
+  margin: 0 30rpx;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+}
+
+.tab-item.active {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  border-bottom: 1.5px solid #fff;
+  position: relative;
+}
+
+.tab-item.active:after {
+  content: "";
+  display: block;
+  height: 6rpx;
+  width: 30%;
+  background: #e02e24;
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  border-radius: 16rpx;
+}
+
+/* 视频列表 */
+.live-list {
+  width: 100%;
+  height: auto;
+  margin-top: 13px;
+  padding-top: 11px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.live-item {
+  position: relative;
+  height:auto;
+  padding: 0 26rpx 26rpx 26rpx;
+  margin-top: 13px;
+}
+.live-bigimg {
+  width: 100%;
+  height: 350px;
+  border-radius: 5px;
+}
+.live-top {
+  position: absolute;
+  top: 17px;
+  left: 24px;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.live-user-info {
+  width: 45%;
+  height: 66rpx;
+  padding-right: 10rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0, .3);
+  border-radius: 66rpx;
+}
+.live-user-img {
+  width: 64rpx;
+  height: 64rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+.live-user-name {
+  margin-left: 7px;
+  color: #fff;
+}
+.live-status {
+  text-align: center;
+}
+.live-ing {
+  position: realtive;
+  width: 60px;
+  height: 19px;
+  text-align: center;
+  line-height: 19px;
+  color: #fff;
+  font-size: 12px;
+  background:linear-gradient(52deg,rgba(255,26,173,1) 0%,rgba(255,17,84,1) 100%);
+  border-radius:4px;
+}
+.live-ing-circle {
+  position:absolute;
+  top: 2px;
+  right: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+.watch-number {
+  color: #666;
+  line-height: 16px;
+}
+.live-list-title {
+  position: absolute;
+  bottom: 110px;
+  left: 26px;
+  line-height: 24px;
+  color: #fff;
+  font-size: 16px;
+}
+.live-goods-list {
+  position: absolute;
+  bottom: 20px;
+  left: 27px;
+  width: 85%;
+  white-space: nowrap;
+}
+.live-goods-cover-list {
+  width: 74px;
+  height: 74px;
+  border-radius: 4px;
+}
+
+/* 预约 */
+.live-notice {
+  width: 60px;
+  height: 19px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 19px;
+  border-radius:4px;
+  color: #fff;
+  background:linear-gradient(135deg,rgba(254,32,96,1) 0%,rgba(254,25,77,1) 100%);
+}
+.mark {
+  position: absolute;
+  top: 0;
+  left: 26rpx;
+  width: 93%;
+  height: 95%;
+  background: rgba(0,0,0, .5);
+  border-radius: 8px;
+}
+
+.notice-time {
+  position: relative;
+  display: flex;
+  vertical-align:bottom;
+  color: #f6f6f6;
+  font-size: 10px;
+  margin-top: 8px;
+}
+.notice-time-con {
+  width: 32rpx;
+  height: 32rpx;
+  display: flex;
+  background: rgba(225, 225, 225, .4);
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* 关注 */
+.live-list-follow {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.live-item-follow {
+  position: relative;
+  width: 46%;
+  height: auto;
+  display: inline-block;
+  margin: 11px 2% 0 2%;
+}
+.live-bigimg-follow {
+  width: 100%;
+  height: 168px;
+  border-radius: 8px;
+}
+.live-list-title-follow {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size:14px;
+  font-family:PingFangSC-Medium;
+  font-weight:600;
+  color:#fff;
+  line-height:20px;
+}
+.live-bom-follow {
+  position: absolute;
+  bottom: 30px;
+  left: 9px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.live-status-follow {
+  text-align: center;
+}
+.live-userinfo-follow {
+  width: 100%;
+  height: 20px;
+}
+.live-userinfo-follow,
+.userinfo-follow-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.live-user-img-follow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.live-user-name-follow {
+  width: 72px;
+  margin-left: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.live-follow-status {
+  font-size: 11px;
+  color: #FF125B;
+  margin-right:10px;
+}

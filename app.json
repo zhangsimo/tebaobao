@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/brand",
+    "pages/home/home",
+    "pages/category/category",
+    "pages/shopcart/shopcart",
+    "pages/my/my",
+    "pages/chat/chat",
+    "pages/live/live",
+    "pages/category/goodsList",
+    "pages/goods/details",
+    "pages/message/message",
+    "pages/order/check",
+    "pages/order/list",
+    "pages/order/detail",
+    "pages/order/logistic-detail",
+    "pages/category/search",
+    "pages/webview/webview",
+    "pages/video/video",
+    "pages/live/new",
+    "pages/live/login",
+    "pages/live/push",
+    "pages/live/list",
+    "pages/live/index",
+    "pages/order/after-sale",
+    "pages/order/refund",
+    "pages/my/feedback",
+    "pages/my/feedback-list",
+    "pages/my/feedback-detail",
+    "pages/address/address",
+    "pages/test/test",
+    "pages/test/test1",
+    "pages/discover/discover",
+    "pages/register/register",
+    "pages/live/goodsList",
+    "pages/noticeLive/noticeLive"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F7003E",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#ff4965",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon_tabbar_home.png",
+        "selectedIconPath": "images/icon_tabbar_home_fill.png"
+      },
+      {
+        "pagePath": "pages/live/index",
+        "text": "抱抱秀",
+        "iconPath": "images/icon_tabbar_discover.png",
+        "selectedIconPath": "images/icon_tabbar_discover_fill.png"
+      },
+      {
+        "pagePath": "pages/shopcart/shopcart",
+        "text": "购物车",
+        "iconPath": "images/icon_tabbar_shopcart.png",
+        "selectedIconPath": "images/icon_tabbar_shopcart_fill.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/icon_tabbar_my.png",
+        "selectedIconPath": "images/icon_tabbar_my_fill.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000
+  },
+  "sitemapLocation": "sitemap.json"
+}

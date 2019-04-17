@@ -1,0 +1,32 @@
+/* noticeLive.wxss */
+page {
+  width: 100%;
+  height: 100%;
+  background: #F4F4F4;
+}
+.notice-live {
+  text-align: center;
+  margin-top: 25%;
+}
+.notice-img {
+  width: 174px;
+  height: 174px;
+}
+.notice-con {
+  width: 34%;
+  margin: 0 auto;
+  color: #999;
+  font-size: 14px;
+}
+.notice-btn {
+  width: 80%;
+  height: 44px;
+  border-radius: 22px;
+  border: 1px solid #FE1A4F;
+  text-align: center;
+  line-height: 44px;
+  font-size: 17px;
+  color: #FE1A4F;
+  margin-left: 10%;
+  margin-top: 168px;
+}

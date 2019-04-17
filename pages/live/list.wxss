@@ -1,0 +1,126 @@
+/**index.wxss**/
+page{
+  background-color: #f2f2f2;
+  padding-bottom: 200rpx;
+}
+.container{
+  width:100%;
+}
+.live-item{
+  height:240rpx;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top:10px;
+  background:#fff;
+  border-radius: 2px;
+  position: relative;
+}
+.live-cover{
+  width: 240rpx;
+  height:240rpx;
+  border-radius:2px 0px 0px 2px;
+  float:left;
+  margin-right: 20rpx;
+}
+.live-info{
+  padding:20rpx;
+}
+.live-title {
+  font-size: 13px;
+  padding-left: 20rpx;
+
+}
+.live-owner{
+  font-size: 12px;
+  color:#ccc;
+  padding-left:20rpx;
+  padding-top:10rpx;
+}
+.live-goods{
+  padding-top:20rpx;
+  overflow: hidden;
+  height: 70rpx;
+}
+.goods-cover{
+  float:left;
+  width:70rpx;
+  height:70rpx;
+  border-radius: 2px;
+  margin-right: 10rpx;
+}
+
+.bottom-bar{
+  height:80rpx;
+}
+
+.fix-iphonex-bottom{
+  
+  height: 148rpx;
+}
+
+.direction{
+  position: absolute;
+  top:20rpx;
+  right:30rpx;
+  font-size: 24rpx;
+  color:#999999;
+}
+
+/*live icon and goods num*/
+.live-icon{
+  position: absolute;
+  top:0;
+  left:0;
+  background-color:rgba(0, 0, 0, 0.5);
+  color:#fff;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+  padding:0rpx 6rpx;
+  height:28rpx;
+  line-height: 28rpx;
+  padding-left:24rpx;
+}
+
+.live-record{
+  padding-left:4rpx;
+}
+.live-red-dot{
+  position: absolute;
+  top:4rpx;
+  left:5rpx;
+  width:24rpx;
+  height:24rpx;
+}
+.goods-num{
+  background-color: rgba(255, 226, 226, 0.3);
+  color:#f27373;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 18rpx;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.goods-num .text{
+  display: inline;
+}
+/* end live icon and goods num*/
+
+/** 发起直播按钮 **/
+
+.bottom-btn{
+  height: 80rpx;
+  width:100%;
+  text-align: center;
+  float:left;
+  color:#fff;
+  font-size: 24rpx;
+  line-height: 80rpx;
+  border:none;
+  border-radius: 0;
+  background-color: #ff2526;
+  background-image: -webkit-linear-gradient(left,#ff8193 0,#ff4965 100%);
+  background-image: linear-gradient(to right,#ff8193 0,#ff4965 100%);
+}
+
+/** end 发起直播按钮 **/

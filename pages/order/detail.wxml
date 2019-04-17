@@ -1,0 +1,84 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+
+<view class="order-status-wrap">
+  <view class="order-status {{order.pay_status==0?'order-status-waitpay':''}}  {{order.pay_status==2&&order.shipping_status==0 ? 'order-status-waitsend': ''}} {{order.shipping_status==2? 'order-status-waitconfirm':''}} {{order.shipping_status==3?'order-status-finish':''}}">
+    <view class="status-text">{{order.status_text}}</view>
+  </view>
+</view>
+
+<view class="weui-cell  address-cell" hover-class="weui-cell_active">
+  <view class="weui-cell__bd">
+    <view class="consignee">
+      <image class="icon" src="http://static.zhibojie.tv/images/miniapp/site2@2x.png"></image>
+
+      <view class="info">
+        <view class="name-phone">
+          <view class="name">收件人： {{address.consignee}}</view>
+          <view class="phone">{{address.mobile}}</view>
+        </view>
+
+        <view class="address">收货地址：{{address.province}}{{address.city}}{{address.district}}{{address.address}}</view>
+
+      </view>
+    </view>
+  </view>
+</view>
+<view class="address-border"></view>
+
+<label class="weui-cell shopcart-item-header">
+
+  <image class="shop-icon" src="http://static.zhibojie.tv/images/miniapp/shop_light.png"></image>
+  <view class="weui-cell__bd shop-name">{{order.shop_name}}</view>
+
+</label>
+
+<label wx:for="{{order.goods}}" wx:for-item="goodsItem" wx:key="id" class="weui-cell shopcart-goods-item">
+
+  <image class="shopcart-goods-cover" src="{{goodsItem.cover}}" mode="aspectFill"></image>
+
+  <view class="shopcart-goods-info">
+    <view class="shopcart-goods-name">{{goodsItem.name}}</view>
+  
+    <view class="shopcart-sku-str">
+      {{goodsItem.sku}}
+    </view>
+    <view class="shopcart-goods-price">¥{{goodsItem.price}}</view>
+
+    <view class="count">x {{goodsItem.count}}</view>
+  </view>
+
+</label>
+
+<view class="other-info-wrap weui-cells">
+  <view class="postscript weui-cell">买家留言：
+    <text>{{order.postscript==""? "无":order.postscript}}  </text>
+  </view>
+
+  <view wx:if="{{order.shipping_status==2||order.shipping_status==3}}" class="shipping-info weui-cell" bindtap="showLogisticInfo" data-com="{{order.express_com}}" data-num="{{order.shipping_number}}">
+  <view class="weui-cell__bd">
+    物流信息：<text>点击查看详细信息 </text>
+    </view>
+    
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+</view>
+
+<view class="order-pay-info">
+    <view class="order-amount">应付金额：
+      <view class="order-amount-text">¥{{order.order_amount}}</view>
+    </view>
+
+    <view class="order-create-info">
+      <view class="order-serial-number">订单编号：{{order.serial_number}}</view>
+      <view class="order-create-time">创建时间：{{order.create_time}}</view>
+      <view class="order-pay-time" wx:if="{{order.pay_status==2}}">支付时间：{{order.pay_time}}</view>
+    </view>
+</view>
+
+<view class="{{isIphonex?'fix-iphonex-bottom':''}} bottom-bar shopcart-bottom-bar">
+
+  <button wx:if="{{order.pay_status==0}}" class="submit" hover-class="hover-effect" disabled="{{isPayDisable}}" bindtap="pay">{{paySuccess?"已支付":"支付"}}</button>
+  <button wx:if="{{order.shipping_status==2}}" class="submit" hover-class="hover-effect" disabled="{{isConfirmDisable}}" bindtap="confirmReceive">{{order.shipping_status==3?"已收货":"确认收货"}}</button>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>

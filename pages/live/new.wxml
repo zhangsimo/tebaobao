@@ -1,0 +1,73 @@
+<view class="page__bd">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">标题</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输直播标题" bindinput='titleInput' />
+      </view>
+    </view>
+
+    <view class="weui-uploader">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">封面上传</view>
+        <view class="weui-uploader__info"></view>
+      </view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+
+          <block wx:for="{{files}}">
+          <view class="weui-uploader__file {{item.progress< 100?'weui-uploader__file_status':''}}">
+            <image class="weui-uploader__img" src="{{item.file}}" mode="aspectFill" />
+            <view wx:if="{{item.progress < 100}}" class="weui-uploader__file-content">{{item.progress}}%</view>
+          </view>
+          </block>
+        </view>
+        <view class="weui-uploader__input-box">
+          <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">直播分类</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindCategoryChange" value="{{categoryIndex}}" range="{{categories}}" range-key='name'>
+          <view class="weui-select weui-select_in-select-after">{{categories[categoryIndex].name}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select" bindtap='goodsList'>
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">商品</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select weui-select_in-select-after goods-cover-wrap" >
+          <image class="goods-cover" wx:for="{{chooseGoods}}" src="{{item.cover}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">直播方向</view>
+      </view>
+      <view class="weui-cell__bd">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{liveDirections}}" wx:key="{{item.value}}" style="margin-left: 20px;">
+            <radio value="{{item.value}}" checked="{{item.checked}}" style="width: 15px; height: 15px;" />
+            {{item.name}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+  </view>
+
+  
+  <button class="weui-btn start-btn" type="primary" bindtap="submit">创建</button>
+</view>

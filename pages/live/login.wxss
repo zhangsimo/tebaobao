@@ -1,0 +1,25 @@
+/* pages/live/login.wxss */
+.weui-cell_input{
+  height: 88rpx;
+}
+
+.login-form{
+  margin-top:160rpx;
+}
+
+.weui-cells__tips{
+  font-size: 24rpx;
+}
+
+.login-btn{
+  color:#fff;
+  height: 80rpx;
+  width:80%;
+  font-size: 28rpx;
+  margin:0 auto;
+  margin-top:100rpx;
+  line-height: 80rpx;
+  background-color: #ff2526;
+  background-image: -webkit-linear-gradient(left,#fd556e 0,#ff4965 100%);
+  background-image: linear-gradient(to right,#fd556e 0,#ff4965 100%);
+}

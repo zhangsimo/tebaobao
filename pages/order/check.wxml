@@ -1,0 +1,67 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="weui-cell weui-cell_access address-cell" hover-class="weui-cell_active" bindtap='chooseAddress'>
+    <view class="weui-cell__bd">
+      <view class="consignee">
+        <image class="icon" src="http://static.zhibojie.tv/images/miniapp/site2@2x.png"></image>
+        <view class="info">
+          <view class="name-phone">
+            <view class="name">收件人： {{checkData.address.consignee}}</view>
+            <view class="phone">{{checkData.address.mobile}}</view>
+          </view>
+
+          <view class="address">收货地址：{{checkData.address.province}}{{checkData.address.city}}{{checkData.address.district}}{{checkData.address.address}}</view>
+
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</view>
+<view class="address-border"></view>
+
+<block wx:for="{{checkData.data}}" wx:key="shopId">
+  <label class="weui-cell shopcart-item-header">
+  
+          <image class="shop-icon" src="http://static.zhibojie.tv/images/miniapp/shop_light.png"></image>
+          <view class="weui-cell__bd shop-name">{{item.shopName === null ? '' : item.shopName}}</view>
+
+  </label>
+        
+        <label wx:for="{{item.cartProducts}}" wx:for-item="goodsItem" wx:key="cartId" class="weui-cell shopcart-goods-item">
+
+          <image class="shopcart-goods-cover" src="{{goodsItem.pImage}}" mode="aspectFill"></image>
+
+          <view class="shopcart-goods-info">
+            <view wx:if="{{!item.isEditing}}" class="shopcart-goods-name">{{goodsItem.pName}}</view>
+            <view wx:else="{{item.isEditing}}" class="stepper">
+              <button class="minus-btn" hover-class="hover-effect" data-id="{{goodsItem.cartId}}" catchtap="minus"></button>
+              <input class="stepper-number" data-id="{{goodsItem.cartId}}" value="{{goodsItem.pQuantity}}" type="number" bindblur="stepperInput"/>
+              <button class="plus-btn" hover-class="hover-effect"  data-id="{{goodsItem.cartId}}" catchtap="plus"></button>
+            </view>
+            <view class="shopcart-sku-str">
+              <block wx:for="{{goodsItem.pOptions}}" wx:for-item="sku" wx:key="{{pOptionText}}">
+                {{sku.pOptionText}}:{{sku.pOptionExplain}}
+              </block>
+            </view>
+            <view class="shopcart-goods-price">¥{{goodsItem.pPrice}}</view>
+
+            <view class="count">x {{goodsItem.pQuantity}}</view>
+          </view>
+
+        </label>
+</block>
+
+<view class="order-pay-info">
+  <view class="total-goods-price">商品金额  <view class="price">¥{{checkData.totalPrice}}</view></view>
+  <view class="shipping-fee">运费  <view class="price">+ ¥0.00</view></view>
+</view>
+
+<view class="{{isIphonex?'fix-iphonex-bottom':''}} bottom-bar shopcart-bottom-bar check-bottom-bar">
+
+  <button class="submit" hover-class="hover-effect" disabled="{{isSubmitDisable}}" bindtap="check">{{ isCanPay? "去支付":"提交订单"}}</button>
+
+  <view class="total-price">
+    <view class="total-price-num {{!isSubmitDisable? 'price-active':''}}">合计:  ¥ {{checkData.totalPrice}}</view>
+  </view>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>

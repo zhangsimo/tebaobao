@@ -1,0 +1,99 @@
+/* pages/register/register.wxss */
+.img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.register-pages {
+  position: absolute;
+  top: 75%;
+  left: 0;
+  width: 100%;
+}
+.register {
+  width: 90%;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  margin-left: 5%;
+  border-radius: 8px;
+}
+.weixin-btn {
+  background: #1AAD19;
+  color: #fff;
+}
+.phone-btn {
+  background: #eee; 
+  font-size: 16px;
+  margin-top: 20px;
+}
+.dialog-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+.phone-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+  background: #fff;
+  border-radius: 10px;
+}
+.dialog-title {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  background: #f8f8f8;
+  border-radius: 10px 10px 0 0;
+  font-size: 16px;
+}
+.input-phone,
+.input-code {
+  height: 40px;
+  display: flex;
+  line-height: 40px;
+}
+.input-code {
+  border-top: 1px solid #f4f4f4;
+  line-height: 50px;
+}
+.input-phone > input {
+  height: 40px;
+}
+
+.input-code > input {
+  height: 50px;
+}
+.input-code > input {
+  margin-left: 10px;
+}
+.get-code {
+  color: #ff4965;
+}
+.dialog-btns {
+  width: 100%;
+  height: 45px;
+  display: flex;
+}
+.btn {
+  flex: 1;
+  line-height: 45px;
+  text-align: center;
+  border-top: 1px solid #f4f4f4;
+  font-size: 16px;
+}
+.btn-cancel {
+  border-right: 1px solid #f4f4f4;
+}
+.btn-complete {
+  color: #ff4965;
+}

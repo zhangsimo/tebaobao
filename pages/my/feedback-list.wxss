@@ -1,0 +1,23 @@
+/* pages/my/feedback-list.wxss */
+.create-feedback-btn{
+  width:80rpx;
+  height: 80rpx;
+  background:url(http://static.zhibojie.tv/images/miniapp/create-feedback-btn.png);
+  background-size: 100%;
+  position: fixed;
+  bottom: 100rpx;
+  right:30rpx;
+}
+
+.new-answers-count{
+  background: red;
+  color:#fff;
+  display: inline-block;
+  width:44rpx;
+  border-radius: 44rpx;
+  text-align: center;
+}
+
+.iphonex-padding-bottom{
+  padding-bottom: 90rpx;
+}

@@ -1,0 +1,13 @@
+<!--photoAlbum.wxml-->
+<view class="modal-mask" wx:if="{{showPhoto}}">
+  <view class="modal-dialog">
+    <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+    <view class="modal-content auth-dialog-content">
+      <view>"{{appName}}"需要保存您的图片或视频到您的相册</view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" catchtap="onAuthDialogCancel" data-status="cancel">不允许</view>
+      <button class="btn-confirm" open-type="openSetting">允许</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showAuthModal}}"></view>
+<view class="modal-dialog" wx:if="{{showAuthModal}}">
+  <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+  <view class="modal-content auth-dialog-content">
+    <view>{{appName}}申请获得您的公开信息</view>
+    <view>(头像，昵称等)</view>
+  </view>
+  <view class="modal-footer">
+    <!-- <view class="btn-cancel" catchtap="onAuthDialogCancel" data-status="cancel">取消</view> -->
+    <button class="btn-confirm" open-type="getUserInfo" bindgetuserinfo="getUserInfo" data-status="confirm" disabled='{{confirmDisabled}}'>授权</button>
+  </view>
+</view>

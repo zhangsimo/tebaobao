@@ -1,0 +1,54 @@
+/* pages/live/new.wxss */
+.page__bd,
+.weui-cells {
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.7);
+  box-shadow:0px 1px 0px 0px rgba(0,0,0,0.19);  
+}
+.weui-cell{
+  min-height:88rpx;
+}
+
+.weui-select{
+  border-right: none;
+}
+
+.weui-uploader{
+  padding-left:30rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
+
+.start-btn{
+  margin: 30rpx;
+  margin-top:60rpx;
+  font-size: 32rpx;
+  background-image: -webkit-linear-gradient(left,#fd556e 0,#ff4965 100%);
+  background-image: linear-gradient(to right,#fd556e 0,#ff4965 100%);
+  border:none;
+}
+
+.goods-cover-wrap{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.goods-cover-wrap .goods-cover{
+  height:60rpx;
+  width: 60rpx;
+  margin-left:10rpx;
+  border-radius: 50rpx;
+}
+
+radio .wx-radio-input{ 
+    height: 30rpx; 
+    width: 30rpx;
+    margin-top: -4rpx;
+    border-radius: 50%;
+    border: 2rpx solid #999;
+    background: transparent;
+ }

@@ -1,0 +1,6 @@
+<view id="view-id">
+123456789
+</view>
+
+<video id="video-player" class="live" src="https://img2.tbb.la/images/material_img/201809/1538101871787949091.mp4" 
+     autoplay="{{false}}" objectFit="cover" show-fullscreen-btn="{{false}}"></video>

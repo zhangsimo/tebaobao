@@ -1,0 +1,16 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="no-data" wx:if="{{!isLoading && (goods.length==0)}}">暂无数据</view>
+<view class="goods-wrap">
+  <block wx:for="{{goods}}" wx:key="id">
+    <navigator class="goods-item" hover-class="hover-goods-item" hover-stay-time="0" url="../goods/details?id={{item.id}}&title={{item.name}}">
+      <view class="goods-item-wrap">
+        <image class="goods-cover" mode="aspectFill" src="{{item.cover}}"></image>
+        <view class="goods-name">{{item.name}}</view>
+        <view class="goods-price">¥{{item.price}}</view>
+      </view>
+    </navigator>
+  </block>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+<load-more isHideLoadMore="{{isHideLoadMore}}"></load-more>

@@ -1,0 +1,51 @@
+
+/** 关注按钮 **/
+.follow-bar{
+  position: absolute;
+  top:30rpx;
+  left:30rpx;
+  height:80rpx;
+  border-radius: 60rpx;
+  background-color:rgba(0,0,0,0.3);
+  width:280rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.follow-bar .shop-logo{
+  width:44rpx;
+  height:44rpx;
+  border-radius: 100%;
+  margin-left:10rpx;
+  object-fit:cover;
+}
+
+.follow-bar .shop-name{
+  font-size: 24rpx;
+  color:#fff;
+  width:130rpx;
+  height:40rpx;
+  margin-left:2rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.follow-bar .follow-btn{
+  width:70rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 40rpx;
+  border:1px solid #e02e24;
+  color:#e02e24;
+  margin-right: 10rpx;
+  margin-left:10rpx;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.unfollow-bar{
+  width:210rpx;
+}

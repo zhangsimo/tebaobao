@@ -1,0 +1,81 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+
+<!-- <view class='search_box'>
+  <input placeholder="请输入商品名称" name="keywords" type="text" value="" id="keywordBox"/>
+  <button class="ico_07" type="submit"> </button>
+</view> -->
+
+<view class="order_nav">
+    <view class='{{order_type == 4 ? "cur" : ""}}'>
+      <navigator open-type="redirect" url="/pages/order/list?order_type=4">全部</navigator>
+    </view>
+
+    <view class='{{order_type == 1 ? "cur" : ""}}'>
+      <navigator open-type="redirect" url="/pages/order/list?order_type=1">待付款</navigator>
+    </view>
+
+    <view class='{{order_type == 2 ? "cur" : ""}}'>
+      <navigator open-type="redirect" url="/pages/order/list?order_type=2">待发货</navigator>
+    </view>
+
+    <view class='{{order_type == 3 ? "cur" : ""}}'>
+      <navigator open-type="redirect" url="/pages/order/list?order_type=3">待收货</navigator>
+    </view>
+
+    <view class='{{order_type == 5 ? "cur" : ""}}'>
+      <navigator open-type="redirect" url="/pages/order/list?order_type=5">退款/售后 </navigator>
+    </view>
+</view>
+<view class="height"></view>
+
+<view class="empty-order" wx:if="{{isEmpty}}">
+  <view class="icon"></view>
+
+  <view class="text">您暂时没有{{title}}订单哦</view>
+</view>
+
+<block wx:for="{{orders}}" wx:key="id">
+  <view class="order-item">
+    <label class="weui-cell shopcart-item-header">
+
+      <image class="shop-icon" src="http://static.zhibojie.tv/images/miniapp/shop_light.png"></image>
+      <view class="weui-cell__bd shop-name">{{item.shop_name}}</view>
+
+      <view class="order-status">{{item.status_text}}</view>
+    </label>
+
+    <label class="weui-cell shopcart-goods-item" data-id="{{item.id}}" bindtap="showOrderDetail">
+
+      <image class="shopcart-goods-cover" src="{{item.goods.cover}}" mode="aspectFill"></image>
+
+      <view class="shopcart-goods-info">
+        <view class="shopcart-goods-name">{{item.goods.name}}</view>
+
+        <view class="shopcart-sku-str">
+          {{item.goods.attribute}}
+        </view>
+        <view class="shopcart-goods-price">¥{{item.goods.price}}</view>
+
+        <view class="count">x {{item.goods.num}}</view>
+      </view>
+
+    </label>
+
+    <view class="order-amount"><view class="order-amount-info">共{{item.goods_count}}件,合计：<text>¥{{item.order_amount}}</text></view></view>
+
+    <view class="order-pay">
+
+      <block wx:if="{{item.order_status!=3 && item.order_status != 2}}">
+      <button wx:if="{{item.pay_status == 0}}" class="pay-btn" data-id="{{item.id}}" bindtap="pay">支付</button>
+      <button wx:if="{{item.pay_status == 0}}" class="cancel-btn" data-id="{{item.id}}" bindtap="cancel">取消</button>
+
+      <button wx:if="{{item.shipping_status == 1}}" class="cancel-btn confirm-receive" data-id="{{item.id}}" bindtap="confirmReceive">确认收货</button>
+
+         <!-- <button wx:if="{{item.pay_status == 2 && (item.order_status==1||item.order_status==5||item.order_status==6)}}" class="cancel-btn confirm-receive" data-id="{{item.id}}" bindtap="afterSale" >退换/售后</button>    -->
+      </block>
+    </view>
+  </view>
+</block>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+<load-more isHideLoadMore="{{isHideLoadMore}}"></load-more>

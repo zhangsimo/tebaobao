@@ -1,0 +1,316 @@
+/**app.wxss**/
+@import 'style/weui.wxss';
+@import 'style/yeui.wxss';
+.clearfix:after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.clearfix{
+    zoom:1;
+}
+page{
+    font-size: 24rpx;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    background-color:#ffffff;
+    color:#333;
+}
+.weui-cells{
+  font-size: 26rpx;
+  color:#4f4f4f;
+}
+
+.weui-cell:before{
+  border-top:1px solid #f2f2f2;
+}
+.weui-cells::before{
+  border-top: 1px solid #f2f2f2;
+}
+.weui-cells:after{
+  border-bottom: 1px solid #f2f2f2;
+}
+
+page .noscroll{
+  height:100%;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.bottom-bar{
+  height: 96rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color:#ffffff;
+  border-top:1px solid #f2f2f2;
+}
+
+.fix-iphonex-bottom{
+  
+  height: 164rpx;
+}
+
+.bottom-btn-wrap{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.bottom-btn-wrap-iphonex{
+  height: 148rpx;
+}
+
+.bottom-btn-wrap-iphonex .bottom-btn{
+  position: absolute;
+  top:0;
+  border-left:none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.bottom-btn-wrap-iphonex .bottom-btn::after{
+  border-left:none;
+  border-right: none;
+  border-radius: 0;
+}
+
+/* banner 滚动记数*/
+.banner{
+  position: relative;
+}
+
+.swiper-count{
+  position: absolute;
+  bottom:20rpx;
+  right:20rpx;
+  background:rgba(255, 255, 255, 0.5);
+  color:#333;
+  text-align: center;
+  font-size: 10px;
+  padding:0 3px;
+  border-radius: 2px;
+}
+/* end banner 滚动计数*/
+
+/* 底部modal */
+.commodity_screen {
+ width: 100%;
+ height: 100%;
+ position: fixed;
+ top: 0;
+ left: 0;
+ background: #000;
+ opacity: 0.2;
+ overflow: hidden;
+ z-index: 1000;
+ color: #fff;
+}
+.commodity_attr_box {
+ width: 100%;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ z-index: 2000;
+ background: rgba(255, 255, 255, 0.9);
+ padding-top: 20rpx;
+ border-radius: 4px 4px 0 0;
+}
+/* end 底部modal */
+
+.container {
+  height: 100%;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+
+.hover-effect{
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+}
+/*商品*/
+.goods-item{
+  width:47%;
+  float:left;
+  margin-left:2%;
+  margin-top:2%;
+}
+/* .hover-goods-item .goods-item-wrap{
+  width:95%;
+  height: 95%;
+  margin:0 auto;
+  margin-top:2.5%;
+}
+.hover-goods-item .goods-item-wrap .goods-cover{
+  height:auto;
+} */
+/* .hover-goods-item .goods-name{
+  font-size: 22rpx;
+}
+.hover-goods-item .goods-price{
+  font-size:24rpx;
+} */
+.hover-goods-item{
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+}
+.goods-cover{
+  width:100%;
+  /* height:450rpx; */
+  height: 352.66rpx;
+  border-radius: 2px 2px 0 0;
+}
+.goods-name{
+  color:#333;
+  overflow: hidden;
+  height: 76rpx;
+}
+.goods-price{
+  color:#d81e06;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+/*end 商品*/
+
+
+/*shopcart item*/
+.shopcart-item-header .shop-icon{
+  width:32rpx;
+  height:32rpx;
+}
+.shopcart-item-header .shop-name{
+  padding: 0 10rpx;
+}
+.shopcart-item{
+  background-color:#ffffff;
+}
+.shopcart-item .weui-cell{
+  padding:20rpx 30rpx 20rpx 20rpx;
+}
+.shopcart-goods-item{
+  min-height: 160rpx;
+  background-color: #fafafa;
+}
+
+.shopcart-goods-cover{
+  width:160rpx;
+  height:160rpx;
+  flex:0 0 160rpx;
+}
+.shopcart-goods-info{
+  margin-left: 20rpx;
+  width:0;
+  flex: 1;
+}
+.shopcart-goods-name{
+  height: 80rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.shopcart-sku-str{
+  max-height: 40rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shopcart-goods-price{
+  font-size: 28rpx;
+  color: #f44;
+  height: 40rpx;
+  line-height: 40rpx;
+  display: inline-block;
+}
+.shopcart-goods-item{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.shopcart-goods-item .count{
+  position: absolute;
+  bottom: 20rpx;
+  right:20rpx;
+  font-size: 24rpx;
+  color:#666;
+}
+.shopcart-item-header{
+  background-color:#ffffff;
+}
+/* end shopcart item*/
+
+/** 分享modal **/
+page .share-modal{
+  min-height: 300rpx;
+  max-height: 100%;
+  background: #f5f5f5;
+  width: 100%;
+  display: flex;
+}
+
+.share-modal .cancel-btn{
+  width:100%;
+  background:#fff;
+  height:88rpx;
+  line-height: 88rpx;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 28rpx;
+}
+.share-modal .item{
+  flex: 1;
+  text-align: center;
+  padding-top:30rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  float:left;
+  font-size: 24rpx;
+  border:none;
+  color:inherit;
+  background:transparent;
+}
+
+.share-modal button .text{
+  padding-top:0rpx;
+}
+
+.item::after{
+  border: none;
+}
+
+.share-modal .image-wrap{
+  background:#fff;
+  width:100rpx;
+  height:100rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  justify-content: center;
+}
+
+.share-modal .image-wrap image{
+  width:48rpx;
+  height: 42rpx;
+  object-fit: cover;
+}
+
+.share-modal .text{
+  padding-top:10rpx;
+  text-align: center;
+}
+
+.weui-badge{
+  background-color:#ff4965;
+}

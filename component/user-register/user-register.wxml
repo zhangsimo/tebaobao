@@ -1,0 +1,11 @@
+<!--register.wxml-->
+<view class="modal-dialog" wx:if="{{showRegister}}">
+  <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+  <view class="modal-content auth-dialog-content">
+    <view>您还没有注册，为确保能享受更好的体验，</view>
+    <text>请输入手机号完成注册！</text>
+  </view>
+  <view class="modal-footer">
+    <navigator url="/pages/register/register"><button class="btn-confirm">立即注册</button></navigator>
+  </view>
+</view>

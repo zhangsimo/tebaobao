@@ -1,0 +1,125 @@
+/* pages/home/home.wxss */
+
+.live-wrap{
+  margin-top:0rpx;
+  margin-bottom: 0rpx;
+  height:420rpx;
+  width:100%;
+  background-image:url(http://static.zhibojie.tv/images/miniapp/miniapp-home-live-bg.png);
+  background-size:100%;
+}
+
+/* background-image:linear-gradient(to right,#ff6700 0,#ff003b 100%); */
+
+
+.live-wrap .header{
+  font-size: 26rpx;
+  padding:20rpx 30rpx;
+  color:#fff;
+  position: relative;
+  padding-left:60rpx;
+}
+
+.live-wrap .header .title-icon{
+  width:30rpx;
+  height: 30rpx;
+  position: absolute;
+  top:22rpx;
+  left:20rpx;
+}
+.live-wrap .header .all{
+  float:right;
+}
+
+.live-items-wrap{
+  height: 320rpx;
+  display:flex;
+  white-space: nowrap;
+}
+.live-wrap .first-live-item{
+  margin-left:20rpx;
+}
+.live-wrap .live-item{
+  display: inline-block;
+  margin-right:20rpx;
+  width:240rpx;
+  height:300rpx;
+  border-radius: 6rpx;
+  box-shadow: 1px 1px 10px #c5c5c5;
+  background-color:#f2f2f2;
+}
+
+.live-wrap .live-item .cover{
+  width:240rpx;
+  height: 240rpx;
+  border-radius: 4rpx 4rpx 0 0;
+}
+
+.live-item{
+  position: relative;
+}
+
+.live-item .name{
+  font-size: 20rpx;
+  padding:0 20rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.live-icon{
+  position: absolute;
+  top:0;
+  left:0;
+  background-color:rgba(51, 51, 51, 0.5);
+  color:#fff;
+  font-size: 16rpx;
+  border-radius: 4rpx;
+  padding:0rpx 4rpx;
+  height:28rpx;
+  line-height: 28rpx;
+  padding-left:24rpx;
+}
+
+.live-record{
+  padding-left:4rpx;
+}
+.live-red-dot{
+  position: absolute;
+  top:5rpx;
+  left:5rpx;
+  width:20rpx;
+  height:20rpx;
+}
+
+/** 商品分类 **/
+.cateory-item{
+  width:25%;
+  text-align: center;
+  float:left;
+  padding-top:30rpx;
+  padding-bottom: 15rpx;
+}
+
+.cateory-item .icon{
+  width:80rpx;
+  height: 80rpx;
+}
+
+.cateory-item .name{
+  text-align: center;
+  font-size: 24rpx;
+  color:#333;
+}
+
+/**推荐商品**/
+.recommand-banner{
+  padding:2%;
+}
+
+.recommand-banner image{
+  width:100%;
+  height: 292rpx;
+  object-fit: cover;
+}
+

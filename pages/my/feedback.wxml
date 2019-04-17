@@ -1,0 +1,16 @@
+<form bindsubmit='submit'>
+<view class="weui-cells__title" style="padding-top:20rpx;color:#555;font-size:26rpx;">反馈描述</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" name="question_desc" placeholder="我们十分重视的您的反馈,请在此处输入内容" style="height: 10em;" maxlength="500" bindinput="countWord"/>
+      <view class="weui-textarea-counter">{{wordCount}}/500</view>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-btn-wrap {{isIphonex? 'bottom-btn-wrap-iphonex':''}}">
+<button class="bottom-btn" form-type='submit' hover-class='hover-effect' disabled='{{submitDisabled?"disabled":""}}'>提交</button>
+</view>
+
+</form>

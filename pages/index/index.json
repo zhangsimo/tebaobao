@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "抱抱秀",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "page-loading": "../../component/page-loading/page-loading",
+    "net-error-tips": "../../component/net-error-tips/net-error-tips",
+    "load-more": "../../component/load-more/load-more",
+    "user-register": "../../component/user-register/user-register",
+    "auth-dialog": "../../component/auth-dialog/auth-dialog"
+  }
+}

@@ -1,0 +1,16 @@
+/* pages/my/feedback.wxss */
+
+.bottom-btn{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  height: 88rpx;
+  width:100%;
+  line-height: 88rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 24rpx;
+  background-color: #ff2526;
+  background-image: -webkit-linear-gradient(left,#ff6700 0,#ff003b 100%);
+  background-image: linear-gradient(to right,#ff6700 0,#ff003b 100%);
+}

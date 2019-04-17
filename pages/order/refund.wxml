@@ -1,0 +1,86 @@
+<form bindsubmit='submit'>
+<rich-text nodes="{{intro}}"></rich-text>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">货物状态
+        <span class="dot">*</span>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindGoodsStatusChange" value="{{goodsStatusIndex}}" range="{{goodsStatus}}">
+        <view class="weui-select weui-select_in-select-after">{{goodsStatus[goodsStatusIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">退款原因
+        <span class="dot">*</span>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindResonChange" value="{{resonIndex}}" range="{{resons}}">
+        <view class="weui-select weui-select_in-select-after">{{resons[resonIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">退款金额</view>
+      <view class="weui-cell__ft">
+        <span class="price">{{total_price}}</span>元</view>
+    </view>
+  </view>
+
+
+</view>
+
+<view class="weui-cells__title" style="padding-top:20rpx;color:#555;font-size:26rpx;">问题描述</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" name="reson_desc" placeholder="请输入文本" style="height: 6em;" maxlength="300" bindinput="countWord"/>
+      <view class="weui-textarea-counter">{{wordCount}}/300</view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title">上传凭证</view>
+          <view class="weui-uploader__info">{{files.length}}/5</view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for-items="{{files}}" wx:key="{{index}}">
+              <view class="weui-uploader__file {{item.progress < 100? 'weui-uploader__file_status':''}}" bindtap="previewImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{item.file}}" mode="aspectFill" />
+
+                <view class="weui-uploader__file-content" wx:if="{{item.progress<100}}">{{item.progress}}%</view>
+
+                <view class="delete-btn" catchtap="deleteImage" data-index="{{index}}">X</view>
+              </view>
+            </block>
+
+            <!-- <view class="weui-uploader__file weui-uploader__file_status">
+              <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+              <view class="weui-uploader__file-content">50%</view>
+            </view> -->
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button class="bottom-btn" form-type='submit' disabled="{{submit_disabled?'disabled':''}}">提交申请</button>
+</form>

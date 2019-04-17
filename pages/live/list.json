@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的直播",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "page-loading": "../../component/page-loading/page-loading",
+    "net-error-tips": "../../component/net-error-tips/net-error-tips",
+    "load-more": "../../component/load-more/load-more"
+  }
+}

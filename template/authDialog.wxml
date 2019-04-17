@@ -1,0 +1,17 @@
+<!--弹窗-->
+<template name="authDialog">
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+  <view class="modal-content auth-dialog-content">
+    <view>{{appName}}申请获得您的公开信息</view>
+    <view>(头像，昵称等)</view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onAuthDialogCancel" data-status="cancel">取消</view>
+    <button class="btn-confirm" bindtap="onAuthDialogConfirm" open-type="getUserInfo"
+    bindgetuserinfo="getUserInfo"
+     data-status="confirm">授权</button>
+  </view>
+</view>
+</template>

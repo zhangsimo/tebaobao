@@ -1,0 +1,20 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+
+<view wx:if="{{is_empty}}" class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无记录</view>
+</view>
+
+<view wx:if="{{!is_empty}}" class="weui-cells weui-cells_after-title {{isIphonex?'iphonex-padding-bottom':''}}">
+
+  <block wx:for="{{feedbacks}}" wx:key="id">
+    <navigator url="feedback-detail?id={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">{{item.content}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"><span class="new-answers-count" wx:if="{{item.news>0}}">{{item.news>99?"99+":item.news}}</span></view>
+    </navigator>
+  </block>
+</view>
+
+<view class="create-feedback-btn" hover-class="hover-effect" bindtap="createFeedback"></view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+<load-more isHideLoadMore="{{isHideLoadMore}}"></load-more>

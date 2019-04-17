@@ -1,0 +1,47 @@
+<!-- 海报 -->
+<view class="modal-mask" bindtap="hidePosterModal" catchtouchmove="preventTouchMove" wx:if="{{showPosterModal}}"></view>
+
+<view class="modal-wrap" bindtap="hidePosterModal" wx:if="{{showPosterModal}}">
+  <view class="modal-dialog" catchtap='emptytest'>
+
+    <view class="close" bindtap='hidePosterModal' hover-class='hover-effect'>
+      <image src="../../images/push/exit2.png"></image>
+    </view>
+    <image class="goods-cover" src="{{goods.cover}}" mode='cover'></image>
+
+    <view class="goods-info">
+      <view class="title-1 {{goods.title_1?'':'text-center'}}">{{goods.title_1?goods.title_1:goods.title}}</view>
+      <view class="title-2">{{goods.title_2}}</view>
+
+      <view class="price" wx:if="{{goods.price}}">¥ {{goods.price}}</view>
+    </view>
+
+    <view class="dash-line"></view>
+
+
+    <view class="qrcode-info-wrap">
+      <image class="qrcode" src="{{qrcodeUrl}}"></image>
+
+      <view class="ps-wrap">
+        <view class="text">长按识别图中的小程序码</view>
+        <view class="text">查看{{goods.title_1?"":" 直播 "}}详情</view>
+      </view>
+    </view>
+
+    <view class="modal-footer">
+      <button class="save-btn" bindtap='save' disabled='{{disabled}}'>保存图片</button>
+      <view class="text">保存后，可以从手机相册分享到朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="modal-dialog-photo" wx:if="{{showPhoto}}">
+  <view class="modal-title"><image class="app-icon" src="{{appiconUrl}}" /></view>
+  <view class="modal-content auth-dialog-content">
+    <view>"{{appName}}"需要保存您的图片或视频到您的相册</view>
+  </view>
+  <view class="modal-footer-photo">
+    <button class="btn-cancel" catchtap="onAuthDialogCancel" data-status="cancel">不允许</button>
+    <button class="btn-confirm" open-type="openSetting">允许</button>
+  </view>
+</view> -->

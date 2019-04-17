@@ -1,0 +1,11 @@
+{
+  "disableScroll":true,
+  "navigationBarBackgroundColor": "#ff4965",
+  "usingComponents": {
+    "page-loading": "../../component/page-loading/page-loading",
+    "net-error-tips": "../../component/net-error-tips/net-error-tips",
+    "load-more": "../../component/load-more/load-more",
+    "qrcode-poster": "../../component/qrcode-poster/qrcode-poster",
+    "photo-album": "../../component/photo-album/photo-album"
+  }
+}

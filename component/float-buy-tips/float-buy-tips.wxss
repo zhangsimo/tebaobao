@@ -1,0 +1,26 @@
+/* component/float-buy-tips/floatBuyTips.wxss */
+.float-buy-tips-wrap{
+  width:400rpx;
+  height:60rpx;
+  border-radius: 8rpx;
+  background-color: rgba(0, 0, 0, 0.8);
+  position:fixed;
+  top:80rpx;
+  left:30rpx;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.float-buy-tips-wrap .avatar{
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  float:left;
+}
+
+.float-buy-tips-wrap text{
+  color:#fff;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  padding-left:30rpx;
+}

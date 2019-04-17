@@ -1,0 +1,5 @@
+var appiconUrl = getApp().globalData.appiconUrl;
+
+module.exports = {
+  appiconUrl: appiconUrl
+}

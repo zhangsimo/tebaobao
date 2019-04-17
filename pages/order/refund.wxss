@@ -1,0 +1,48 @@
+/* pages/order/refund.wxss */
+page{
+  padding-bottom: 200rpx;
+  position: relative;
+}
+.dot{
+  color:#ad0e11;
+}
+
+.price{
+  color:#ad0e11;
+}
+
+.desc{
+  border-bottom: 1px solid #f2f2f2;
+}
+.bottom-btn{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  height: 88rpx;
+  width:100%;
+  line-height: 88rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 24rpx;
+  background-color: #ff2526;
+  background-image: -webkit-linear-gradient(left,#ff6700 0,#ff003b 100%);
+  background-image: linear-gradient(to right,#ff6700 0,#ff003b 100%);
+}
+
+.weui-cell_select{
+  height: 80rpx;
+}
+.weui-uploader__file{
+  position: relative;
+}
+.weui-uploader__file .delete-btn{
+  width:50rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color:#fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top:0;
+  right: 0;
+}

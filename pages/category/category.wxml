@@ -1,0 +1,45 @@
+<view class="wrap">
+  <navigator class="search-bar" hover-class="hover-search-bar" hover-stay-time="0" url="search">
+    <view class="search-input">
+      <view class="search-content">
+        <image src="http://static.zhibojie.tv/images/miniapp/top-search-bar-icon.png"></image>
+        <view class="txt">点此搜索</view>
+      </view>
+    </view>
+  </navigator>
+
+  <view class="content-wrap">
+    <view class="category-top-wrap">
+      <!-- <view class="move-area">
+        <view class="move-view" animation="{{animationData}}">
+        </view>
+      </view> -->
+
+      <scroll-view class="category-top" scroll-y="{{true}}">
+        <block wx:for="{{categoryTop}}" wx:key="id" wx:if="{{item.is_show_cat}}">
+          <view wx:if="{{item.isActive}}"class="category-top-item category-top-item-active" data-id="{{item.id}}" data-index="{{index}}" bindtap='topCategoryTap'><view class="active-left-view"></view>{{item.name}}</view>
+          <view wx:else class="category-top-item" data-id="{{item.id}}" data-index="{{index}}" bindtap='topCategoryTap'>{{item.name}}</view>
+
+        </block>
+      </scroll-view>
+      <view class="hide-scroll-bar"></view>
+    </view>
+
+    <scroll-view class="category-sub" scroll-y="{{true}}">
+      <view class="weui-loadmore weui-loadmore_line" style="margin:0 auto;margin-top:20px;font-size:12px;">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{subCategoryName}}</view>
+      </view>
+      <block wx:for="{{categorySub}}" wx:key="id" wx:if="{{item.is_show_cat}}">
+        <navigator hover-class='hover-effect' class="category-sub-item" url="goodsList?id={{item.id}}&title={{item.name}}">
+          <image src="{{item.logo}}" mode="aspectFill"></image>
+          <view>{{item.name}}</view>
+        </navigator>
+      </block>
+    </scroll-view>
+
+  </view>
+
+  <net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+
+</view>
+<!--end wrap-->

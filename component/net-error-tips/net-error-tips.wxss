@@ -1,0 +1,17 @@
+.net-error{
+  position: absolute;
+  top:calc(75% - 50px);
+  left:calc(50% - 106px);
+}
+.net-error .reloadBtn{
+  width:100px;
+  margin:0 auto;
+  font-size: 12px;
+  color:white;
+  background-color: #ff4965;
+}
+.net-error .tips{
+  text-align: center;
+  padding:10px;
+  color:#ff4965;
+}

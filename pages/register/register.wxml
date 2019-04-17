@@ -1,0 +1,21 @@
+<!--pages/register/register.wxml-->
+<image class="img" src="../../images/register.png"></image>
+<view class="register-pages">
+  <button class="weixin-btn register" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信快速登陆</button>
+  <button class="phone-btn register" ontap="isPhoneNumber">输入手机号码登陆</button>
+</view>
+
+<view class="dialog-wrap" wx:if="{{phoneDialog}}">
+  <view class="phone-dialog">
+    <view class="dialog-title">手机号码登陆</view>
+    <view style="padding: 10px;">
+      <view class="input-phone">手机号：<input placeholder='请输入手机号码' bindinput="phoneNumber" /><text class="get-code" ontap="getCode">{{time}}</text></view>
+      <view class="input-code">验证码: <input placeholder='验证码' bindinput="codeNumber" /></view>
+    </view>
+    <view class="dialog-btns">
+      <view class="btn-cancel btn" ontap="cancelHiddenDialog">取消</view>
+      <view class="btn-complete btn" ontap="completeHiddenDialog">完成</view>
+    </view>
+  </view>
+</view>
+<auth-dialog showAuthModal="{{showAuthModal}}" bind:confirm="loadData"></auth-dialog>

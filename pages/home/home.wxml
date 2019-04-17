@@ -1,0 +1,57 @@
+<float-buy-tips></float-buy-tips>
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<!--banner广告区域-->
+<view class="banner">
+  <swiper autoplay="true"  interval="5000" indicator-active-color="#d81e06" circular="true" bindchange="bannerChange" >
+  <block wx:for="{{banner}}" wx:key="id">
+      <swiper-item data-type="{{item.type}}" data-text="{{item.text}}" bindtap="bannerClick">
+      <image  src="{{item.url}}" style="width:100%;height:100%;" mode='aspectFill'></image>
+      </swiper-item>
+      </block>
+  </swiper>
+
+  <view class="swiper-count">{{swiperCount}}</view>
+</view>
+
+<view class="categories-wrap clearfix" wx:if="{{categories.length>0}}">
+  <block wx:for="{{categories}}" wx:key="id">
+      <navigator class="cateory-item" url="../category/goodsList?id={{item.id}}&title={{item.name}}">
+        <view><image class="icon" src="{{item.logo}}"></image></view>
+        <view class="name">{{item.name}}</view>
+      </navigator>
+  </block>
+</view>
+
+<view class="live-wrap" wx:if="{{showLive}}">
+  <view class="header"><image src="http://static.zhibojie.tv/images/miniapp/miniapp-home-live-title-icon.png" class="title-icon"/>直播购物  <view class="all" bindtap="allLive">全部 ></view></view>
+
+  <scroll-view class="live-items-wrap" scroll-x="true">
+    <block wx:for="{{lives}}" wx:key="id">
+      <navigator class="live-item {{index==0?'first-live-item':''}}" url="../../pages/live/live?id={{item.id}}&title={{item.title}}">
+        
+        <view class="live-icon {{item.is_stopped==1?'live-record':''}}">{{item.is_stopped==1? "回放":"直播"}}</view>
+        <image class="live-red-dot" wx:if="{{item.is_stopped==0}}" src="http://static.zhibojie.tv/images/miniapp/live-dot.png">·</image>
+        <image src="{{item.cover}}" class="cover" mode="aspectFill"></image>
+
+        <view class="name">{{item.title}}</view>
+      </navigator>
+    </block>
+  </scroll-view>
+</view>
+
+<view class="recommand-banner"><image src="{{recommandBanner}}"></image></view>
+
+<view class="goods-wrap">
+  <block wx:for="{{goods}}" wx:key="id">
+    <navigator class="goods-item" hover-class="hover-goods-item" hover-stay-time="0" url="../goods/details?id={{item.id}}&title={{item.name}}">
+      <view class="goods-item-wrap">
+        <image class="goods-cover" mode="aspectFill" src="{{item.cover}}"></image>
+        <view class="goods-name">{{item.name}}</view>
+        <view class="goods-price">¥{{item.price}}</view>
+      </view>
+    </navigator>
+  </block>
+</view>  
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
+<load-more isHideLoadMore="{{isHideLoadMore}}"></load-more>

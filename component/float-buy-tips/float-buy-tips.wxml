@@ -1,0 +1,6 @@
+<!--谁谁在购买的飘屏-->
+<view class="float-buy-tips-wrap" wx:if="{{showBuyTips}}">
+  <image class="avatar" src="http://wx.qlogo.cn/mmhead/Q3auHgzwzM438FNZgT79yITy3Um0IAwIyEtjx9NOeosC6V3EQCwnaQ/0"></image>
+
+  <text>木子**正在去购买</text>
+</view>

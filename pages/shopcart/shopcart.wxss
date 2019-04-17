@@ -1,0 +1,247 @@
+/* pages/shopcart/shopcart.wxss */
+.wrap{
+  padding-bottom: 176rpx;
+}
+
+.empty-page{
+  text-align: center;
+  height: 100%;
+}
+.empty-icon{
+  width:200rpx;
+  height:200rpx;
+  margin: 0 auto;
+}
+.empty-info-wrap{
+  padding-top:70%;
+}
+.empty-text{
+  color:#7d7d7d;
+  padding:5px 0;
+}
+.visit-btn{
+  height:66rpx;
+  width:200rpx;
+  font-size:26rpx;
+  color:#ffffff;
+  background-color: #ff4965;
+}
+
+/*shopcart item*/
+.shop-icon{
+  width:32rpx;
+  height:32rpx;
+}
+.shop-name{
+  padding: 0 10rpx;
+}
+.shopcart-item{
+  background-color:#ffffff;
+}
+.shopcart-item .weui-cell{
+  padding:20rpx 30rpx 20rpx 20rpx;
+}
+.shopcart-goods-item{
+  min-height: 160rpx;
+  background-color: #fafafa;
+}
+
+.shopcart-goods-cover{
+  width:160rpx;
+  height:160rpx;
+  flex:0 0 160rpx;
+}
+.shopcart-goods-info{
+  margin-left: 20rpx;
+  width:0;
+  flex: 1;
+}
+.shopcart-goods-name{
+  height: 73rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.shopcart-sku-str{
+  max-height: 40rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shopcart-goods-price{
+  font-size: 28rpx;
+  color: #f44;
+  height: 60rpx;
+  line-height: 60rpx;
+  display: inline-block;
+}
+.shopcart-goods-item{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.shopcart-goods-item .count{
+  position: absolute;
+  bottom: 20rpx;
+  right:20rpx;
+  font-size: 24rpx;
+  color:#666;
+}
+.edit-btn{
+  padding-left:40rpx;
+  position: absolute;
+  right:0;
+  padding-right: 20rpx;
+  width:100rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+}
+/* end shopcart item*/
+
+
+/* bottom-bar */
+.bottom-bar .submit{
+  height:100%;
+  width:180rpx;
+  background-color: #ff4965;
+  color:#ffffff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 96rpx;
+  border-radius: 0;
+  float:right;
+}
+.bottom-bar .submit::after{
+  border-radius: 0;
+}
+
+.select-all{
+  float:left;
+  margin-left:20rpx;
+}
+.shopcart-bottom-bar .select-all{
+  margin-top:30rpx;
+}
+.total-price{
+  height:100%;
+  float:right;
+  padding-right: 20rpx;
+  color:#999;
+}
+.total-price-num{
+  padding-top:15rpx;
+}
+
+.price-active{
+  color:#f60;
+}
+/* end bottom-bar */
+
+/* 编辑购物车数量*/
+.delete-btn{
+  width:120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  position: absolute;
+  top:0;
+  right:0;
+  font-size: 24rpx;
+  height: 100%;
+  background-color: #ff4343;
+}
+.stepper{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  margin-bottom: 20rpx;
+}
+.minus-btn,.plus-btn{
+  border-radius: 4rpx 0 0 4rpx;
+  width: 80rpx;
+  height: 60rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  position: relative;
+  vertical-align: middle;
+  flex-basis: auto;
+
+  padding:0;
+  margin:0;
+}
+
+.plus-btn{
+  border-radius: 0 2px 2px 0;
+}
+
+.minus-btn::after{
+  content:none;
+}
+
+.stepper button::before{
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6c6c6c;
+}
+
+.minus-btn::before{
+  width: 18rpx;
+  height: 2rpx;
+}
+
+.plus-btn::before{
+  width: 18rpx;
+  height: 2rpx;
+}
+.plus-btn::after{
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 18rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6c6c6c;
+  width: 2rpx;
+  height: 36rpx;
+}
+
+.stepper-number{
+  width: 66rpx;
+    height: 52rpx;
+    padding: 2rpx;
+    border: 1px solid #ccc;
+    border-width: 1px 0;
+    border-radius: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    color: #666;
+    font-size: 28rpx;
+    vertical-align: middle;
+    text-align: center;
+    flex-basis: auto;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.weui-cell:hover{
+  background-color: #fafafa;
+}
+
+/* end编辑购物车数量*/

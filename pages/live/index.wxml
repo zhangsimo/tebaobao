@@ -1,0 +1,149 @@
+<!--index.wxml-->
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="container">
+  <view class="tab-h">
+    <view style="width: 60%; display: flex; align-items: center;">
+      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav" style="margin-left: 0">精选</view>
+      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">关注</view>
+    </view> 
+    <navigator class="live-search" url="../category/search">
+      <input type="text" placeholder-style="color:#FF99B1;" placeholder='特抱抱直供' />
+      <image class="live-search-img" src="../../images/lives/live-search.png" />
+    </navigator>
+  </view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{tabContentHeight}}rpx;position:relative; display: {{showList}}">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h" bindscrolltolower="loadMore">
+        <!-- 轮播图 -->
+        <swiper class="home-swiper" indicator-dots="{{indicatorDots}}" circular autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{banner}}" wx:key="{{item.id}}"> 
+            <swiper-item style="width: 100%; height: 100%;" data-title="{{item.ad_name}}" data-link="{{item.ad_link}}" data-type="{{item.is_belong}}" ontap="bannerClick">
+              <image mode="widthFix" style="width: 100%; height: 100%;" src="{{item.ad_code}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+
+        <!-- 商品列表 -->
+        <view class="live-goodslist">
+          <view class="live-title">
+            <image class="title-imgs" src="../../images/lives/hot-sale.png" />
+            直播热销
+          </view>
+          <scroll-view scroll-x class="live-goodslist-content">
+            <view class="live-goods-item" wx:for="{{goods}}" wx:key="goods_id">
+              <navigator hover-class="hover-goods-item" hover-stay-time="0" url="../goods/details?id={{item.goods_id}}&title={{item.goods_name}}">
+                <view class="goods-item-wrap">
+                  <image class="live-goods-cover" mode="aspectFill" src="{{item.goods_img}}"></image>
+                  <view class="live-goods-name">{{item.goods_name}}</view>
+                  <view class="live-goods-price">
+                    <view style="font-size: 10px; display: inline-block; margin-right: -4rpx; vertical-align: middle">¥</view>
+                    {{item.shop_price}}
+                  </view>
+                </view>
+              </navigator>
+            </view>
+          </scroll-view>
+        </view>
+
+        <!-- 直播列表 -->
+        <view class="live-list">
+         <view class="live-title">
+            <image class="title-imgs" mode="widthFix" src="../../images/lives/live-now.png" />
+            直播精选
+          </view>
+          <block wx:for="{{lives}}" wx:key="index">
+            <view wx:if="{{item.length == 0}}" class="weui-loadmore weui-loadmore_line">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+            </view>
+            <view class="live-item" data-liveId="{{item.id}}" data-liveTitle="{{item.title}}" data-direction="{{item.direction}}" ontap="openLive">
+              <image src="{{item.cover}}" mode="aspectFill" class="live-bigimg" />
+              <view class="live-top">
+                <view class="live-user-info">
+                <image class="live-user-img" mode="aspectFill" src="{{item.userPortrait}}" />
+                  <view class="live-user-name">{{item.userName}}</view>
+                </view>
+                <view class="live-status">
+                  <view class="live-ing">直播中<view class="live-ing-circle"></view></view>
+                  <view class="watch-number">{{item.memberNum}}人观看</view>
+                </view>
+              </view>
+              <view class="live-list-title">{{item.title}}</view>
+              <scroll-view scroll-x class="live-goods-list">
+                <image wx:for="{{item.products}}" wx:key="item.id" class="live-goods-cover-list" mode="aspectFill" src="{{item.cover}}" style="margin-right: 8px"></image>
+              </scroll-view>
+            </view>
+          </block>
+        </view>
+
+        <!-- 预告列表 -->
+        <view class="live-list">
+         <view class="live-title">
+            <image class="title-imgs" src="../../images/lives/live-ing.png" />
+            直播预告
+          </view>
+          <block wx:for="{{dataNotice}}" wx:key="index">
+            <view class="live-item">
+              <navigator url="../noticeLive/noticeLive">
+                <image src="{{item.cover}}" class="live-bigimg" />
+                <view class="mark"></view>
+              </navigator>
+              <view class="live-top">
+                <view class="live-user-info">
+                  <image class="live-user-img" mode="aspectFill" src="{{item.userPortrait}}" />
+                  <view class="live-user-name">{{item.userName}}</view>
+                </view>
+                <view class="live-status">
+                  <view class="live-notice" data-room-id="{{item.streamId}}" ontap="tapNotice">点我预约</view>
+                  <view class="notice-time">
+                    <view class="tian notice-time-con">{{tian}}</view>天
+                    <view class="shi notice-time-con">{{shi}}</view>时
+                    <view class="fen notice-time-con">{{fen}}</view>分
+                    <view class="miao notice-time-con">{{miao}}</view>秒
+                  </view>
+                </view>
+              </view>
+              <view class="live-list-title">{{item.title}}</view>
+              <scroll-view scroll-x class="live-goods-list">
+                <image wx:for="{{item.products}}" wx:key="item.id" class="live-goods-cover-list" mode="aspectFill" src="{{item.cover}}" style="margin-right: 8px"></image>
+              </scroll-view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h" bindscrolltolower="loadMore">
+        <!-- 关注列表 -->
+        <view class="live-list-follow">
+         <view class="live-title" style="padding-top: 11px">
+            <image class="title-imgs" mode="widthFix" src="../../images/lives/follow.png" />
+            主播动态
+          </view>
+          <block wx:for="{{followData}}" wx:key="index">
+            <view class="live-item-follow">
+              <image src="{{item.cover}}" class="live-bigimg-follow" />
+              <view class="live-list-title-follow">{{item.title}}</view>
+              <view class="live-bom-follow">
+                <image class="title-imgs-follow" mode="widthFix" style="width: 20px; height: 20px;" src="../../images/lives/follow.png" />
+                <view class="live-status-follow">
+                  <view class="live-ing">直播中<view class="live-ing-circle"></view></view>
+                  <view class="watch-number">{{item.memberNum}}人观看</view>
+                </view>
+              </view>
+              <view class="live-userinfo-follow">
+                <view class="userinfo-follow-con">
+                  <image class="live-user-img-follow" mode="aspectFill" src="{{item.userHeadimg}}" />
+                  <view class="live-user-name-follow">{{item.userName}}</view>
+                </view>
+                <view class="live-follow-status" data-user-id="{{item.uId}}" wx:if="{{item.start_time == 0}}" ontap="cancelFollow">取消关注</view>
+                <view class="live-follow-status" data-room-id="{{item.streamId}}" wx:if="{{!item.start_time == 0}}" ontap="cancelNotice">取消预约</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "auth-dialog": "../../component/auth-dialog/auth-dialog"
+
+  }
+}

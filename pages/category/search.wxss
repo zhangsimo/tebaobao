@@ -1,0 +1,137 @@
+/* pages/category/search.wxss */
+page {
+  width: 100%;
+  height: 100%;
+  background: #F4F4F4;
+}
+.search-bar{
+  height: 88rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0 15px;
+  background:#F7003E;
+  box-sizing: border-box;
+  font-size: 14px;
+  color:#fff;
+}
+.input-placeholder {
+  color: #FFBACA;
+}
+.search-content{
+  height:60rpx;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  background: rgba(255, 185, 185, 0.6);
+  border-radius: 30rpx;
+}
+.hot-search {
+  width: 100%;
+  height: auto;
+}
+.search-title {
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  line-height: 88rpx;
+  font-size: 14px;
+  font-weight: 600;
+}
+.hot-title {
+  color: #FE1A4F;
+}
+.search-title > image {
+  width: 15px;
+  height: 15px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.search-content image{
+  width:32rpx;
+  height:32rpx;
+}
+.search-content input{
+  flex:2;
+  padding-left:20rpx;
+  height:100%;
+}
+
+.history-header{
+  height: 88rpx;
+  padding-right: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.history-title{
+  font-size: 28rpx;
+  color:#333;
+}
+
+.history-header .delete-bt{
+  float:right;
+  width:40rpx;
+  height: 40rpx;
+  border:none;
+  background-color:#fff;
+  background-image:url("http://static.zhibojie.tv/images/miniapp/history-delete-btn-64.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x:center;
+  background-position-y: center;
+}
+.history-header .delete-bt::before{
+  content:none;
+}
+.hot_wrap {
+  margin-top: 12px;
+}
+.history_wrap {
+  width: 100%;
+  height: auto;
+  margin-top: 42x;
+}
+.history-header .delete-bt::after{
+  content:none;
+}
+.history-list{
+  width: 100%;
+  height: auto;
+  padding:0 44rpx;
+}
+.history-keyword{
+  font-size: 24rpx;
+  text-align: left;
+  height:80rpx;
+  margin: 0 8px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.text{
+  font-size: 26rpx;
+  display: inline-block;
+  height:60rpx;
+  padding: 0 32rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx
+}
+.hot-text {
+ color: #FF4D78;
+  background: #fff;
+}
+.history-text {
+  background: #EFEFEF;
+  color: #666;
+}
+.goods-list-wrap .no-data{
+  text-align: center;
+  padding:30rpx;
+}

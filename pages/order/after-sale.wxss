@@ -1,0 +1,11 @@
+/* 发起申请 */
+.weui-media-box__title_in-text{
+  color: #333;
+  font-size: 28rpx;
+}
+
+.weui-media-box__desc{
+  color: #999;
+  font-size: 24rpx;
+  padding-top:10rpx;
+}

@@ -1,0 +1,310 @@
+/* pages/address/address.wxss */
+page {
+  background: #f8f8f8;
+  color: #333;
+}
+.address-page {
+  width:100%;
+  height: 100%;
+}
+.address-list {
+  position: relative;
+  width:100%;
+  height: auto;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+}
+.choose-address {
+  position:absolute;
+  top: 21px;
+}
+
+.address-con {
+  flex: 1;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.address-mark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+.address-check {
+  padding: 0 15px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.address-operation {
+  padding: 0 10px;
+  color:#666;
+  font-size: 12px;
+}
+.address-mobile {
+  color: #666;
+  font-size: 13px;
+  display: inline;
+  margin-left:20px;
+}
+.address-edit,
+.address-del {
+  width: 40px;
+  height: 20px;
+  color: #fff; 
+  line-height: 20px;
+  background: #ff4965;
+  text-align: center;
+  border-radius: 5px;
+}
+.address-del {
+  margin-top: 5px;
+}
+.create-address {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.create-address-myself,
+.create-address-weixin {
+  width: 40%;
+  height: 40px;
+  margin: 0 5%;
+  color: #fff;
+  text-align: center;
+  line-height:40px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.create-address-myself {
+  background:#ff4965;  
+}
+.create-address-weixin {
+  background: #36D900;
+}
+.create-address-dialog {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-bottom: 20rpx;
+}
+.address-dialog-content {
+  width:100%;
+  height: auto;
+}
+.create-address-head {
+  position: relative;
+  width:100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.create-address-title {
+  font-size: 14px;
+}
+.create-address-close {
+  position: absolute;
+  top: -5px;
+  right:10px;
+  width: 15px;
+  height: 15px;
+  font-size: 30px;
+}
+.address-dialog-detail {
+  padding: 0 15px;
+}
+.dialog-detail-list {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.dialog-detail-list > input {
+  margin-left: 20px;
+  width: 75%;
+}
+.address-intelligence {
+  width: 100%;
+  height: 90px;
+  border: 1px solid #e5e5e5;
+  margin-top: 10px;
+}
+.address-clear {
+  display: inline;
+  color:#888;
+}
+.address-submit {
+  padding: 3px 10px;
+  background: #FF4965;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 8px;
+}
+.address-preservation {
+  width:100%;
+  height: 35px;
+  line-height: 35px;
+  background: #FF4965;
+  color: #fff;
+  border: 0;
+  margin-top: 15px;
+}
+
+/* 二次确认框 */
+.del-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, .5);
+}
+.del-dialog-con {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: auto;
+  background: #fff;
+  border-radius: 5px;
+}
+.del-dialog-title {
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+}
+.del-dialog-button {
+  width: 100%;
+  height: 80rpx;
+  display:flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-top: 1px solid #e5e5e5;
+  border-radius: 0 0 5px 5px;
+}
+.del-dialog-confirm,
+.del-dialog-cancel {
+  width: 100%;
+  height:100%;
+  text-align: center;
+  line-height: 80rpx;
+}
+.del-dialog-confirm {
+  border-left: 1px solid #e5e5e5;
+  color: #FF4965;
+}
+
+/* 选择城市 */
+.cascade-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width:100%;
+  height: 0;
+  font-size: 28rpx;
+  z-index: 9999;
+}
+.cascade-hei {
+  width: 100%;
+  height: 732rpx;
+  background: #000;
+  opacity: 0.5;
+  position:relative;
+  z-index:999;
+
+}
+.cascade-find {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+  background: #fff;
+}
+.cancel,
+.confirm {
+  position: absolute;
+  display: block;
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #333;
+}
+.confirm {
+  right: 0;
+  top: 0;
+  color: #FF4965;
+}
+.cascade-head {
+  height: 80rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.tooth {
+  line-height: 80rpx;
+  text-align: center;
+}
+
+/* 设置授权 */
+.user-auth-mark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background: rgba(0,0,0,.5);
+  z-index: 999;
+}
+.user-auth-content{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 320rpx;
+  background: #fff;
+  border-radius: 4px;
+  text-align: cneter;
+}
+.user-auth-tit {
+  margin: 15rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+.user-auth-con {
+  padding: 0 20rpx;
+  line-height: 36rpx;
+  font-size: 30rpx;
+}
+.user-auth-foot {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width:100%;
+  border-top: 1px solid #eee;
+}
+.user-auth-foot > button {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border: none;
+  background: #fff;
+}

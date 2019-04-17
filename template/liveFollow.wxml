@@ -1,0 +1,12 @@
+<template name="liveFollow">
+
+  <cover-view class="follow-bar {{is_follow?'unfollow-bar':''}}">
+    <cover-image class="shop-logo" src="{{shop.logo}}"></cover-image>
+
+    <cover-view class="text-wrap">
+      <cover-view class="shop-name">{{shop.name}}</cover-view>
+    </cover-view>
+
+    <cover-view class="follow-btn" catchtap="follow" wx:if="{{!is_follow}}">关注</cover-view>
+  </cover-view>
+</template>

@@ -1,0 +1,6 @@
+/* pages/category/goodsList.wxss */
+.no-data{
+  text-align: center;
+  color:#999;
+  padding-top:50%;
+}

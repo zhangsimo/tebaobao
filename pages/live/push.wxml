@@ -1,0 +1,47 @@
+<view class="publish-page{{active ? ' active' : ''}}">
+  <live-pusher
+    id="pusher" url="{{pushURL}}" mode="{{pushMode}}"
+    bindstatechange="statechange"
+    beauty="{{magic ? '6' : 1}}"
+    whiteness="{{magic ? '6' : 1}}"
+    orientation="{{direction==0?'horizontal':'vertical'}}"
+  >
+    
+
+    <cover-image wx:if="{{direction==0}}" class="h-push-note" src="http://static.ydianpu.com/images/miniapp/h-push-note.png"></cover-image>
+
+    <cover-view class="msg-wrap">
+
+      <block wx:for="{{messages}}" wx:key="id">
+        <cover-view class="message-item">
+          <cover-view class="message-username">{{item.username}}</cover-view> <cover-view class="message-content">: {{item.content}}</cover-view>
+        </cover-view>
+      </block>
+      
+    </cover-view>
+
+    <cover-view class="wrapper" bindtap="onViewTap">
+
+      <cover-view class="h-start-btn-wrap" wx:if="{{showStartBtn&&direction==0}}">
+        <cover-image class="h-start-btn" src="http://static.ydianpu.com/images/miniapp/h-start-btn.png" hover-class='hover-effect' catchtap="preparePush"></cover-image>
+      </cover-view>
+
+      <cover-view class="live-status">{{liveState[pushState]}}</cover-view>
+
+      <cover-view class="direction-ps" wx:if="{{direction==0}}">
+      </cover-view>
+
+      <cover-view class="count-down" wx:if="{{countDown>0}}">{{countDown}}</cover-view>
+      <cover-view class="publish-control">
+        <cover-image catchtap="onSwitchCamera" src="../../images/push/switch-camera.png" class="switchbtn"/>
+
+        <cover-view catchtap="onModeTap" class="control__mode">{{pushModeText}}</cover-view>
+
+        <cover-view catchtap="preparePush" class="start-btn" wx:if="{{showStartBtn&&direction!=0}}">按这开始直播</cover-view>
+
+        <cover-image catchtap="onMagicTap" src="../../images/push/magic-wand.png" class="magicbtn {{magic ? 'active' : ''}}"/>
+        <cover-image catchtap="onCloseTap" src="../../images/push/exit2.png" class="exitbtn"/>
+      </cover-view>
+    </cover-view>
+  </live-pusher>
+</view>

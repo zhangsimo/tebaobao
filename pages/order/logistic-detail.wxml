@@ -1,0 +1,21 @@
+<page-loading isLoading="{{isLoading}}"></page-loading>
+<view class="logistic-info">
+  <view>物流状态：<text class="status">{{status}}{{data?"":"暂无信息"}}</text></view>
+  <view class="express_name">物流公司：{{express_name}}</view>
+  <view class="express_nu">物流单号：{{nu}}</view>
+</view>
+
+<view class="logistic-node-info">
+  <view class="header">物流跟踪</view>
+
+  <view class="main">
+    <block wx:for="{{data}}" wx:key="ftime">
+      <view class="node">
+        <view class="context">{{item.context}}</view>
+        <view class="time">{{item.ftime}}</view>
+        <view class="status_bot {{index==0?'first-child-bot':''}}"><view class="circle"></view></view>
+      </view>
+    </block>
+  </view>
+</view>
+<net-error-tips isNoNetError="{{isNoNetError}}" bind:loadData="loadData"></net-error-tips>
